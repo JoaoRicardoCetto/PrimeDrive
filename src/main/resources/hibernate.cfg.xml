@@ -22,9 +22,6 @@
     <mapping class="domain.Endereco"></mapping>
     <mapping class="domain.Contrato"></mapping>
 
-            
-       
-
-     
+                
   </session-factory>
 </hibernate-configuration>
