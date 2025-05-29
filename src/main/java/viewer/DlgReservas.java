@@ -1,6 +1,8 @@
 package viewer;
 
 import controller.GerInterGraf;
+import controller.TableModelContrato;
+import domain.Contrato;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,11 +17,17 @@ public class DlgReservas extends javax.swing.JDialog {
 
     private GerInterGraf gerIG; 
     
+    private TableModelContrato tableModelContrato = new TableModelContrato();
     
     public DlgReservas(java.awt.Frame parent, boolean modal, GerInterGraf gerIG) {
         super(parent, modal);
-        this.gerIG = gerIG;
         initComponents();
+        this.gerIG = gerIG;
+        
+        tableModelContrato.setLista(gerIG.getGerDominio().listar(Contrato.class));
+        
+        TabReservas.setModel(tableModelContrato);
+        
     }
 
     /**
@@ -48,7 +56,7 @@ public class DlgReservas extends javax.swing.JDialog {
         BotaoVeiculos = new javax.swing.JButton();
         PanTabela = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabReservas = new javax.swing.JTable();
+        TabReservas = new javax.swing.JTable(tableModelContrato);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -212,6 +220,7 @@ public class DlgReservas extends javax.swing.JDialog {
 
         PanBackground.add(PanBarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, -1));
 
+        TabReservas.setModel(tableModelContrato);
         jScrollPane1.setViewportView(TabReservas);
 
         javax.swing.GroupLayout PanTabelaLayout = new javax.swing.GroupLayout(PanTabela);

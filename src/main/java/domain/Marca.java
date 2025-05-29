@@ -33,7 +33,12 @@ public class Marca {
         this.nome = nome;
         this.veiculos = veiculos;
     }
-
+    
+    @Override
+    public String toString() {
+        return nome;
+    }
+    
     public int getIdMarca() {
         return idMarca;
     }
@@ -57,6 +62,8 @@ public class Marca {
     public void setVeiculos(List<Veiculo> veiculos) {
         this.veiculos = veiculos;
     }
+
+ 
     
     
 }

@@ -5,20 +5,31 @@
 package viewer;
 
 import controller.GerInterGraf;
+import controller.TableModelVeiculo;
+import domain.Veiculo;
 
 /**
  *
  * @author joaom
  */
+
+//MODIFICAR A LISTA DE VEICULOS, NEM TODOS OS DADOS VÃO PARA A TABELA E ISSO TA DANDO ERRO
+
+
 public class DlgVeiculos extends javax.swing.JDialog {
 
     private GerInterGraf gerIG; 
+    private TableModelVeiculo tableModelVeiculo = new TableModelVeiculo();
     
     public DlgVeiculos(java.awt.Frame parent, boolean modal, GerInterGraf gerIG) {
         super(parent, modal);
-        this.gerIG = gerIG;
-
         initComponents();
+
+        this.gerIG = gerIG;
+        
+        tableModelVeiculo.setLista(gerIG.getGerDominio().listarVeiculosDisponiveis());
+        
+        TabVeiculos.setModel(tableModelVeiculo);
     }
 
     /**
@@ -46,7 +57,7 @@ public class DlgVeiculos extends javax.swing.JDialog {
         BotaoVeiculos = new javax.swing.JButton();
         PanTabela = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TabReservas = new javax.swing.JTable();
+        TabVeiculos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -204,15 +215,8 @@ public class DlgVeiculos extends javax.swing.JDialog {
 
         PanBackground.add(PanBarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, -1));
 
-        TabReservas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(TabReservas);
+        TabVeiculos.setModel(tableModelVeiculo);
+        jScrollPane1.setViewportView(TabVeiculos);
 
         javax.swing.GroupLayout PanTabelaLayout = new javax.swing.GroupLayout(PanTabela);
         PanTabela.setLayout(PanTabelaLayout);
@@ -277,7 +281,7 @@ public class DlgVeiculos extends javax.swing.JDialog {
     private javax.swing.JPanel PanCarros;
     private javax.swing.JPanel PanTabela;
     private javax.swing.JPanel PanTitleBarraLateral;
-    private javax.swing.JTable TabReservas;
+    private javax.swing.JTable TabVeiculos;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

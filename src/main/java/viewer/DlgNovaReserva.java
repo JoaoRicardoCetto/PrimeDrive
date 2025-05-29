@@ -41,10 +41,8 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         BotaoVoltar = new javax.swing.JButton();
         PanCarros = new javax.swing.JPanel();
         PainelDados = new javax.swing.JPanel();
-        TFNome = new javax.swing.JFormattedTextField();
         labCPF = new javax.swing.JLabel();
         FTCPF = new javax.swing.JFormattedTextField();
-        LabNome = new javax.swing.JLabel();
         labFeedback = new javax.swing.JLabel();
         BotaoLimpar = new javax.swing.JButton();
         BotaoConfirmar1 = new javax.swing.JButton();
@@ -55,11 +53,14 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         FTDataRetirada = new javax.swing.JFormattedTextField();
         labCPF2 = new javax.swing.JLabel();
         FTDataDevolucao = new javax.swing.JFormattedTextField();
-        labCPF3 = new javax.swing.JLabel();
-        labCPF4 = new javax.swing.JLabel();
-        FTHorarioDevolucao = new javax.swing.JFormattedTextField();
-        FTHorarioRetirada = new javax.swing.JFormattedTextField();
         CBCidades = new javax.swing.JComboBox<>();
+        labFeedback2 = new javax.swing.JLabel();
+        CBCarros1 = new javax.swing.JComboBox<>();
+        CBCarros2 = new javax.swing.JComboBox<>();
+        labFeedback3 = new javax.swing.JLabel();
+        labFeedback4 = new javax.swing.JLabel();
+        labFeedback5 = new javax.swing.JLabel();
+        labFeedback6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         PanBarraLateral = new javax.swing.JPanel();
         PanTitleBarraLateral = new javax.swing.JPanel();
@@ -69,9 +70,6 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         BotaoNovaReserva = new javax.swing.JButton();
         BotaoReservas = new javax.swing.JButton();
         BotaoVeiculos = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -136,9 +134,6 @@ public class DlgNovaReserva extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
-        LabNome.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
-        LabNome.setText("Nome do Motorista");
-
         labFeedback.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         labFeedback.setText("Local de Retirada");
 
@@ -161,7 +156,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         });
 
         labFeedback1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
-        labFeedback1.setText("Carro");
+        labFeedback1.setText("Veiculo");
 
         CBCarros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chevrolet Onix", "Hyundai HB20", "Volkswagen Gol", "Fiat Argo", "Toyota Corolla", "Honda Civic", "Ford Ka", "Renault Kwid", "Nissan Kicks", "Jeep Compass", "Jeep Renegade", "Chevrolet Tracker", "Toyota Hilux", "Ford Ranger", "Volkswagen T-Cross", "Fiat Toro", "Hyundai Creta" }));
 
@@ -185,24 +180,6 @@ public class DlgNovaReserva extends javax.swing.JDialog {
             ex.printStackTrace();
         }
 
-        labCPF3.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
-        labCPF3.setText("Horario Retirada");
-
-        labCPF4.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
-        labCPF4.setText("Horario Devolução");
-
-        try {
-            FTHorarioDevolucao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            FTHorarioRetirada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -217,16 +194,8 @@ public class DlgNovaReserva extends javax.swing.JDialog {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(labCPF2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FTDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(labCPF3)
-                        .addGap(18, 18, 18)
-                        .addComponent(FTHorarioRetirada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(labCPF4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FTHorarioDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                        .addComponent(FTDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,79 +206,109 @@ public class DlgNovaReserva extends javax.swing.JDialog {
                     .addComponent(labCPF1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labCPF3)
-                    .addComponent(FTHorarioRetirada, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FTDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labCPF2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labCPF4)
-                    .addComponent(FTHorarioDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
+                    .addComponent(labCPF2)
+                    .addComponent(FTDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         CBCidades.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colatina", "Linhares", "Vitória", "Vila Velha" }));
+
+        labFeedback2.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        labFeedback2.setText("Tipo do Veiculo");
+
+        CBCarros1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carro", "Moto", "Caminhão" }));
+
+        CBCarros2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hatch", "Sedan" }));
+
+        labFeedback3.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        labFeedback3.setText("Modelo");
+
+        labFeedback4.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        labFeedback4.setText("Valor Total");
+
+        labFeedback5.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        labFeedback5.setText("Nº de Parcelas");
+
+        labFeedback6.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        labFeedback6.setText("Forma de Pagamento");
 
         javax.swing.GroupLayout PainelDadosLayout = new javax.swing.GroupLayout(PainelDados);
         PainelDados.setLayout(PainelDadosLayout);
         PainelDadosLayout.setHorizontalGroup(
             PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelDadosLayout.createSequentialGroup()
-                .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(BotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(104, 104, 104)
-                        .addComponent(BotaoConfirmar1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PainelDadosLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabNome)
-                            .addComponent(labCPF)
-                            .addComponent(labFeedback)
-                            .addComponent(labFeedback1))
-                        .addGap(39, 39, 39)
-                        .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(FTCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TFNome)
-                            .addComponent(CBCarros, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CBCidades, javax.swing.GroupLayout.Alignment.TRAILING, 0, 429, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosLayout.createSequentialGroup()
+                .addContainerGap(635, Short.MAX_VALUE)
+                .addComponent(BotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(BotaoConfirmar1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
+            .addGroup(PainelDadosLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelDadosLayout.createSequentialGroup()
+                        .addComponent(labFeedback6)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(PainelDadosLayout.createSequentialGroup()
+                        .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(labFeedback4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labCPF)
+                            .addComponent(labFeedback1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labFeedback2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                            .addComponent(labFeedback3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labFeedback5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(CBCarros2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CBCarros1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(FTCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CBCarros, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CBCidades, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         PainelDadosLayout.setVerticalGroup(
             PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelDadosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PainelDadosLayout.createSequentialGroup()
-                        .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(TFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabNome))
-                        .addGap(18, 18, 18)
-                        .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FTCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labCPF))
-                        .addGap(25, 25, 25)
-                        .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labFeedback)
-                            .addComponent(CBCidades, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labFeedback1)
-                            .addComponent(CBCarros, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoConfirmar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(PainelDadosLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(FTCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labCPF))
+                .addGap(25, 25, 25)
+                .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labFeedback)
+                    .addComponent(CBCidades, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labFeedback2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CBCarros1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labFeedback3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CBCarros2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labFeedback1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CBCarros, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(labFeedback6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(labFeedback4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labFeedback5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
 
-        PanBackground.add(PainelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 940, 320));
+        PanBackground.add(PainelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 940, 490));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         jLabel2.setText("Preencha os campos a seguir para realizar a reserva");
@@ -411,24 +410,6 @@ public class DlgNovaReserva extends javax.swing.JDialog {
 
         PanBackground.add(PanBarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, -1));
 
-        jScrollPane1.setViewportView(jTable1);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        PanBackground.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 970, 160));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -509,14 +490,13 @@ public class DlgNovaReserva extends javax.swing.JDialog {
     private javax.swing.JButton BotaoVeiculos;
     private javax.swing.JButton BotaoVoltar;
     private javax.swing.JComboBox<String> CBCarros;
+    private javax.swing.JComboBox<String> CBCarros1;
+    private javax.swing.JComboBox<String> CBCarros2;
     private javax.swing.JComboBox<String> CBCidades;
     private javax.swing.JFormattedTextField FTCPF;
     private javax.swing.JFormattedTextField FTDataDevolucao;
     private javax.swing.JFormattedTextField FTDataRetirada;
-    private javax.swing.JFormattedTextField FTHorarioDevolucao;
-    private javax.swing.JFormattedTextField FTHorarioRetirada;
     private javax.swing.JLabel LabAluguelDeCarros;
-    private javax.swing.JLabel LabNome;
     private javax.swing.JLabel LabPrimeDrive;
     private javax.swing.JLabel LabTituloNovaReserva;
     private javax.swing.JPanel PainelDados;
@@ -524,20 +504,19 @@ public class DlgNovaReserva extends javax.swing.JDialog {
     private javax.swing.JPanel PanBarraLateral;
     private javax.swing.JPanel PanCarros;
     private javax.swing.JPanel PanTitleBarraLateral;
-    private javax.swing.JFormattedTextField TFNome;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labCPF;
     private javax.swing.JLabel labCPF1;
     private javax.swing.JLabel labCPF2;
-    private javax.swing.JLabel labCPF3;
-    private javax.swing.JLabel labCPF4;
     private javax.swing.JLabel labFeedback;
     private javax.swing.JLabel labFeedback1;
+    private javax.swing.JLabel labFeedback2;
+    private javax.swing.JLabel labFeedback3;
+    private javax.swing.JLabel labFeedback4;
+    private javax.swing.JLabel labFeedback5;
+    private javax.swing.JLabel labFeedback6;
     // End of variables declaration//GEN-END:variables
 }

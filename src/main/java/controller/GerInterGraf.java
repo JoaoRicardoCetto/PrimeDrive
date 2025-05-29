@@ -87,6 +87,10 @@ public class GerInterGraf {
     public void abrirDlgCadastroCliente(){
         dlgCadCliente = (DlgCadastroCliente) abrirJanela(frmInicial, dlgCadCliente, DlgCadastroCliente.class);
     }
+
+    public GerenciadorDominio getGerDominio() {
+        return gerDominio;
+    }
     
     
     

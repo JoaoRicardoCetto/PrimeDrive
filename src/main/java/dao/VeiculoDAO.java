@@ -6,6 +6,7 @@ package dao;
 
 import domain.Veiculo;
 import domain.enums.SituacaoVeiculo;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,8 +16,8 @@ import java.util.List;
  */
 public class VeiculoDAO extends GenericDAO{
     
-    private List<Veiculo> listarVeiculosDisponiveis(){
-        List<Veiculo> veiculosDisponiveis = null;
+    public List<Veiculo> listarVeiculosDisponiveis(){
+        List<Veiculo> veiculosDisponiveis = new ArrayList<>();
         
         for(Veiculo v : (List<Veiculo>) listar(Veiculo.class)){
             if(v.getSitVeiculo() == SituacaoVeiculo.DISPONIVEL){
