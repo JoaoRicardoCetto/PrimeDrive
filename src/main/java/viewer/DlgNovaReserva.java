@@ -20,7 +20,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
     /**
      * Creates new form DlgNovaReserva
      */
-    public DlgNovaReserva(java.awt.Frame parent, boolean modal, GerInterGraf gerIg) {
+    public DlgNovaReserva(java.awt.Frame parent, boolean modal, GerInterGraf gerIG) {
         super(parent, modal);
         this.gerIG = gerIG;
         initComponents();
@@ -68,7 +68,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         jSeparator1 = new javax.swing.JSeparator();
         BotaoNovaReserva = new javax.swing.JButton();
         BotaoReservas = new javax.swing.JButton();
-        BotaoFeedBack = new javax.swing.JButton();
+        BotaoVeiculos = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -91,7 +91,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
 
         BotaoVoltar.setBackground(new java.awt.Color(150, 150, 150));
         BotaoVoltar.setForeground(new java.awt.Color(150, 150, 150));
-        BotaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/png/32x32/back.png"))); // NOI18N
+        BotaoVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/back.png"))); // NOI18N
         BotaoVoltar.setBorder(null);
         BotaoVoltar.setBorderPainted(false);
         BotaoVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -365,7 +365,6 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         BotaoNovaReserva.setBackground(new java.awt.Color(85, 85, 85));
         BotaoNovaReserva.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         BotaoNovaReserva.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoNovaReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/png/32x32/add.png"))); // NOI18N
         BotaoNovaReserva.setText("Nova Reserva");
         BotaoNovaReserva.setBorder(null);
         BotaoNovaReserva.setFocusPainted(false);
@@ -377,7 +376,6 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         BotaoReservas.setBackground(new java.awt.Color(70, 70, 70));
         BotaoReservas.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         BotaoReservas.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoReservas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/png/32x32/notes_edit.png"))); // NOI18N
         BotaoReservas.setText("Minhas Reservas");
         BotaoReservas.setBorder(null);
         BotaoReservas.setFocusPainted(false);
@@ -392,36 +390,27 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         });
         PanBarraLateral.add(BotaoReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 350, 80));
 
-        BotaoFeedBack.setBackground(new java.awt.Color(70, 70, 70));
-        BotaoFeedBack.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        BotaoFeedBack.setForeground(new java.awt.Color(255, 255, 255));
-        BotaoFeedBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/png/32x32/comments.png"))); // NOI18N
-        BotaoFeedBack.setText("FeedBack");
-        BotaoFeedBack.setBorder(null);
-        BotaoFeedBack.setFocusPainted(false);
-        BotaoFeedBack.setHideActionText(true);
-        BotaoFeedBack.setIconTextGap(20);
-        BotaoFeedBack.setMaximumSize(new java.awt.Dimension(163, 32));
-        BotaoFeedBack.setMinimumSize(new java.awt.Dimension(163, 32));
-        BotaoFeedBack.setPreferredSize(new java.awt.Dimension(163, 32));
-        BotaoFeedBack.setVerifyInputWhenFocusTarget(false);
-        BotaoFeedBack.addActionListener(new java.awt.event.ActionListener() {
+        BotaoVeiculos.setBackground(new java.awt.Color(70, 70, 70));
+        BotaoVeiculos.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        BotaoVeiculos.setForeground(new java.awt.Color(255, 255, 255));
+        BotaoVeiculos.setText("Veiculos Disponiveis");
+        BotaoVeiculos.setBorder(null);
+        BotaoVeiculos.setFocusPainted(false);
+        BotaoVeiculos.setHideActionText(true);
+        BotaoVeiculos.setIconTextGap(20);
+        BotaoVeiculos.setMaximumSize(new java.awt.Dimension(163, 32));
+        BotaoVeiculos.setMinimumSize(new java.awt.Dimension(163, 32));
+        BotaoVeiculos.setPreferredSize(new java.awt.Dimension(163, 32));
+        BotaoVeiculos.setVerifyInputWhenFocusTarget(false);
+        BotaoVeiculos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoFeedBackActionPerformed(evt);
+                BotaoVeiculosActionPerformed(evt);
             }
         });
-        PanBarraLateral.add(BotaoFeedBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 350, 80));
+        PanBarraLateral.add(BotaoVeiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 350, 80));
 
         PanBackground.add(PanBarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -486,7 +475,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
 //        }
 
 
-        LimparCampos();;
+        LimparCampos();
     }//GEN-LAST:event_BotaoConfirmar1ActionPerformed
 
     private void BotaoReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoReservasActionPerformed
@@ -494,10 +483,10 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         gerIG.abrirDlgReservas();
     }//GEN-LAST:event_BotaoReservasActionPerformed
 
-    private void BotaoFeedBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoFeedBackActionPerformed
+    private void BotaoVeiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoVeiculosActionPerformed
         this.setVisible(false); //Evita que JDialogs sejam abertas uma sobre a outra repetidamente
-        gerIG.abrirDlgNovaReserva();
-    }//GEN-LAST:event_BotaoFeedBackActionPerformed
+        gerIG.abrirDlgVeiculos();
+    }//GEN-LAST:event_BotaoVeiculosActionPerformed
 
     private void LimparCampos(){
         TFNome.setText("");
@@ -514,10 +503,10 @@ public class DlgNovaReserva extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoConfirmar1;
-    private javax.swing.JButton BotaoFeedBack;
     private javax.swing.JButton BotaoLimpar;
     private javax.swing.JButton BotaoNovaReserva;
     private javax.swing.JButton BotaoReservas;
+    private javax.swing.JButton BotaoVeiculos;
     private javax.swing.JButton BotaoVoltar;
     private javax.swing.JComboBox<String> CBCarros;
     private javax.swing.JComboBox<String> CBCidades;

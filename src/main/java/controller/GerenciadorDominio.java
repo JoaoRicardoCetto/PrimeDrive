@@ -5,6 +5,7 @@
 package controller;
 
 import dao.ConexaoHibernate;
+import dao.GenericDAO;
 import org.hibernate.HibernateException;
 
 /**
@@ -12,9 +13,13 @@ import org.hibernate.HibernateException;
  * @author joaom
  */
 public class GerenciadorDominio {
+    
+    private GenericDAO genDAO;
 
     public GerenciadorDominio() throws java.lang.ExceptionInInitializerError, HibernateException {
         ConexaoHibernate.getSessionFactory().openSession();
+        
+        genDAO = new GenericDAO();
         // Instânciar as classes DAO
         
     }

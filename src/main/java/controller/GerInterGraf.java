@@ -4,7 +4,6 @@
  */
 package controller;
 
-import dao.ConexaoHibernate;
 import viewer.DlgCadastroCliente;
 import viewer.DlgHome;
 import viewer.DlgReservas;
@@ -15,6 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
+import viewer.DlgVeiculos;
 
 /**
  *
@@ -27,6 +27,7 @@ public class GerInterGraf {
     private DlgReservas dlgReservas = null;
     private DlgNovaReserva dlgNovaReserva = null;
     private DlgCadastroCliente dlgCadCliente = null;
+    private DlgVeiculos dlgVeiculos = null;
 
     private GerenciadorDominio gerDominio;
     
@@ -35,8 +36,6 @@ public class GerInterGraf {
         try {
             gerDominio = new GerenciadorDominio();
             
-            //Esse OptionPane será removido futuramente. foi criado apenas para validar a criação do banco.
-            JOptionPane.showMessageDialog(null,"Banco Criado com Sucesso!", "Mensagem", JOptionPane.INFORMATION_MESSAGE);
         } catch (java.lang.ExceptionInInitializerError | HibernateException ex) {
             JOptionPane.showMessageDialog(null, ex, "Erro ao inicializar.", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
@@ -45,16 +44,18 @@ public class GerInterGraf {
     
     
     private JDialog abrirJanela(java.awt.Frame parent, JDialog dlg, Class classe) {
-        if (dlg == null){
-            try{
-                dlg = (JDialog) classe.getConstructor(Frame.class, boolean.class, GerInterGraf.class).newInstance(parent, true, this);
-        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-                JOptionPane.showMessageDialog(frmInicial, "Erro ao abrir a janela" + classe.getName());
-            }
-        }
-        dlg.setVisible(true);
+        if (dlg == null){     
+            try {
+                dlg = (JDialog) classe.getConstructor(Frame.class, boolean.class, GerInterGraf.class).newInstance(parent, true, this);                                
+            } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+                JOptionPane.showMessageDialog(parent, "Erro ao abrir a janela " + classe.getName() + ". " + ex );
+            } 
+        }         
+        
+        dlg.setVisible(true); 
         return dlg;
-    }
+    }    
+
     
     public void voltarPag(javax.swing.JDialog pagina){
         pagina.setVisible(false);
@@ -68,20 +69,23 @@ public class GerInterGraf {
     }
     
     public void abrirDlgHome(){
-        abrirJanela(frmInicial, dlgHome, DlgHome.class);
+        dlgHome = (DlgHome) abrirJanela(frmInicial, dlgHome, DlgHome.class);
     }
     
     public void abrirDlgReservas(){
-        abrirJanela(frmInicial, dlgReservas, DlgReservas.class);
+        dlgReservas = (DlgReservas) abrirJanela(frmInicial, dlgReservas, DlgReservas.class);
     }
     
     public void abrirDlgNovaReserva(){
-        abrirJanela(frmInicial, dlgNovaReserva, DlgNovaReserva.class);
+        dlgNovaReserva = (DlgNovaReserva) abrirJanela(frmInicial, dlgNovaReserva, DlgNovaReserva.class);
     }
     
+    public void abrirDlgVeiculos(){
+        dlgVeiculos = (DlgVeiculos) abrirJanela(frmInicial, dlgVeiculos, DlgVeiculos.class);
+    }
     
     public void abrirDlgCadastroCliente(){
-        abrirJanela(frmInicial, dlgCadCliente, DlgCadastroCliente.class);
+        dlgCadCliente = (DlgCadastroCliente) abrirJanela(frmInicial, dlgCadCliente, DlgCadastroCliente.class);
     }
     
     
@@ -116,7 +120,6 @@ public class GerInterGraf {
         //</editor-fold>
         GerInterGraf gerIG = new GerInterGraf();
         gerIG.abrirFrmInicial();
-                System.out.println("\n\nFOI-----------------\n\n\n\n");
 
     }
 }

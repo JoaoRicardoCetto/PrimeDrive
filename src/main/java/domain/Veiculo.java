@@ -20,6 +20,9 @@ public class Veiculo implements Serializable{
     @GeneratedValue ( strategy = GenerationType.IDENTITY )
     private int idVeiculo;
     
+    @Lob
+    private byte[] foto;
+    
     @Column  (nullable = false)
     private double val_diaria;
     
@@ -68,6 +71,14 @@ public class Veiculo implements Serializable{
 
     public double getVal_diaria() {
         return val_diaria;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
 
     public void setVal_diaria(double val_diaria) {

@@ -1,5 +1,6 @@
 viewer\DlgNovaReserva$3.class
 domain\Marca.class
+viewer\DlgVeiculos.class
 viewer\DlgNovaReserva.class
 dao\LocadoraDAO.class
 viewer\FrmInicial$1.class
@@ -7,6 +8,7 @@ domain\enums\SituacaoVeiculo.class
 dao\ClienteDAO.class
 viewer\DlgHome.class
 domain\Cliente.class
+viewer\DlgVeiculos$1.class
 viewer\DlgReservas$3.class
 dao\VeiculoDAO.class
 viewer\DlgCadastroCliente.class
@@ -20,14 +22,18 @@ viewer\DlgReservas$2.class
 controller\Util.class
 viewer\DlgHome$2.class
 viewer\DlgNovaReserva$1.class
+viewer\DlgVeiculos$3.class
 viewer\DlgNovaReserva$5.class
 viewer\DlgReservas$1.class
+controller\TableModelVeiculo.class
 domain\Veiculo.class
 viewer\FrmInicial.class
 dao\MarcaDAO.class
 viewer\DlgCadastroCliente$2.class
 viewer\FrmInicial$2.class
+dao\GenericDAO.class
 viewer\DlgHome$3.class
+viewer\DlgVeiculos$2.class
 controller\GerInterGraf.class
 dao\ConexaoHibernate.class
 viewer\DlgNovaReserva$2.class
