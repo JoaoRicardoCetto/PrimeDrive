@@ -9,7 +9,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 /**
- *
+ * DATA DE PAGAMENTO SEMPRE VAI SER A DATA DE INICIO DO CONTRATO. ALGUNS DOS VALORES VÃO SER CALCULADOS AUTOMATICAMENTE E ARMAZENADOS NO BANCO
  * @author joaom
  */
 
