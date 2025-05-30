@@ -4,9 +4,11 @@
  */
 package controller;
 
+import dao.ClienteDAO;
 import dao.ConexaoHibernate;
 import dao.GenericDAO;
 import dao.VeiculoDAO;
+import domain.Cliente;
 import domain.Veiculo;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -19,12 +21,14 @@ public class GerenciadorDominio {
     
     private GenericDAO genDAO;
     private VeiculoDAO veiDAO;
+    private ClienteDAO cliDAO;
 
     public GerenciadorDominio() throws java.lang.ExceptionInInitializerError, HibernateException {
         ConexaoHibernate.getSessionFactory().openSession();
         
         genDAO = new GenericDAO();
         veiDAO = new VeiculoDAO(); 
+        cliDAO = new ClienteDAO();
         // Instânciar as classes DAO
     }
     
@@ -33,7 +37,15 @@ public class GerenciadorDominio {
         return veiDAO.listarVeiculosDisponiveis();
     }
     
+    public Cliente pesquisarPorCPF(String CPF){
+        return cliDAO.pesquisarPorCPF(CPF);
+    }
+    
     public List listar(Class classe){
         return genDAO.listar(classe);
+    }
+    
+    public void inserir(Object obj){
+        genDAO.inserir(obj);
     }
 }

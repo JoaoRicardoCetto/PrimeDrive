@@ -124,6 +124,11 @@ public class Veiculo implements Serializable{
     public void setMarca(Marca marca) {
         this.marca = marca;
     }
+
+    @Override
+    public String toString() {
+        return marca + " " + modelo + " " + tipo;
+    }
     
     
 }

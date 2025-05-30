@@ -11,6 +11,9 @@ import viewer.DlgNovaReserva;
 import viewer.FrmInicial;
 import java.awt.Frame;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
@@ -28,7 +31,7 @@ public class GerInterGraf {
     private DlgNovaReserva dlgNovaReserva = null;
     private DlgCadastroCliente dlgCadCliente = null;
     private DlgVeiculos dlgVeiculos = null;
-
+    
     private GerenciadorDominio gerDominio;
     
     
@@ -92,7 +95,14 @@ public class GerInterGraf {
         return gerDominio;
     }
     
-    
+    public void carregarCombo(JComboBox combo, Class classe) {
+        try {
+            List lista = gerDominio.listar(classe);                
+            combo.setModel(  new DefaultComboBoxModel( lista.toArray() )   );
+        } catch (HibernateException ex) {
+            JOptionPane.showMessageDialog(frmInicial, ex, "Erro ao carregar ComboBox" , JOptionPane.ERROR_MESSAGE );
+        }
+    }
     
     
     

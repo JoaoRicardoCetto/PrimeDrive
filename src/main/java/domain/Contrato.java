@@ -48,6 +48,19 @@ public class Contrato implements Serializable{
     @ManyToOne
     @JoinColumn(name = "idLocadora")
     private Locadora locadora;
+
+    public Contrato(Date dat_inicio, Date dat_fim, Date dat_pagamento, String forma_pagamento, double val_total, double val_parcela, int qtd_parcelas, Cliente cliente, Veiculo veiculo, Locadora locadora) {
+        this.dat_inicio = dat_inicio;
+        this.dat_fim = dat_fim;
+        this.dat_pagamento = dat_pagamento;
+        this.forma_pagamento = forma_pagamento;
+        this.val_total = val_total;
+        this.val_parcela = val_parcela;
+        this.qtd_parcelas = qtd_parcelas;
+        this.cliente = cliente;
+        this.veiculo = veiculo;
+        this.locadora = locadora;
+    }
     
 
     public Contrato(int idContrato, Date dat_inicio, Date dat_fim, double val_total, double val_parcela, Date dat_pagamento, String forma_pagamento, int qtd_parcelas, Cliente cliente, Veiculo veiculo, Locadora locadora) {

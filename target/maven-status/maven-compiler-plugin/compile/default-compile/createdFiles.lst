@@ -7,6 +7,7 @@ dao\LocadoraDAO.class
 viewer\CadastrosSistema$6.class
 viewer\FrmInicial$1.class
 domain\enums\SituacaoVeiculo.class
+viewer\DlgNovaReserva$6.class
 dao\ClienteDAO.class
 viewer\DlgHome.class
 domain\Cliente.class
@@ -48,4 +49,5 @@ viewer\CadastrosSistema$7.class
 domain\Locadora.class
 viewer\DlgCadastroCliente$1.class
 dao\ContratoDAO.class
+viewer\DlgReservas$4.class
 viewer\CadastrosSistema$4.class

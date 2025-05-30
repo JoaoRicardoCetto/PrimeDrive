@@ -16,8 +16,8 @@ import domain.Contrato;
 public class DlgReservas extends javax.swing.JDialog {
 
     private GerInterGraf gerIG; 
-    
     private TableModelContrato tableModelContrato = new TableModelContrato();
+    
     
     public DlgReservas(java.awt.Frame parent, boolean modal, GerInterGraf gerIG) {
         super(parent, modal);
@@ -29,6 +29,7 @@ public class DlgReservas extends javax.swing.JDialog {
         TabReservas.setModel(tableModelContrato);
         
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,6 +60,11 @@ public class DlgReservas extends javax.swing.JDialog {
         TabReservas = new javax.swing.JTable(tableModelContrato);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         PanBackground.setForeground(new java.awt.Color(255, 255, 255));
         PanBackground.setMinimumSize(new java.awt.Dimension(1360, 720));
@@ -267,6 +273,10 @@ public class DlgReservas extends javax.swing.JDialog {
         this.setVisible(false); //Evita que JDialogs sejam abertas uma sobre a outra repetidamente
         gerIG.abrirDlgVeiculos();
     }//GEN-LAST:event_BotaoVeiculosActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        tableModelContrato.setLista(gerIG.getGerDominio().listar(Contrato.class));
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
