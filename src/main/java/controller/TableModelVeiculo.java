@@ -15,7 +15,7 @@ public class TableModelVeiculo extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 7;   // Quantidade de colunas da TABELA
+        return 6;   // Quantidade de colunas da TABELA
     }
     
     @Override
@@ -28,13 +28,13 @@ public class TableModelVeiculo extends AbstractTableModel {
         
         Veiculo vei = (Veiculo) lista.get(rowIndex);
         switch ( columnIndex ) {
-            case 0: return vei.getFoto();
-            case 1: return vei.getTipo();
-            case 2: return vei.getMarca().getNome();
-            case 3: return vei.getModelo();
-            case 4: return vei.getVal_diaria();
-            case 5: return vei.getPlaca();
-            case 6: return vei.getSitVeiculo();
+            //case 0: return vei.getFoto();
+            case 0: return vei.getTipo();
+            case 1: return vei.getMarca().getNome();
+            case 2: return vei.getModelo();
+            case 3: return vei.getVal_diaria();
+            case 4: return vei.getPlaca();
+            case 5: return vei.getSitVeiculo();
             
         }
         return null;
@@ -42,7 +42,7 @@ public class TableModelVeiculo extends AbstractTableModel {
 
     @Override
     public String getColumnName(int column) {
-        String nomes[] = {"Foto", "Tipo", "Marca", "Modelo", "Valor Diária", "Placa", "Situação" };
+        String nomes[] = {/*"Foto",*/ "Tipo", "Marca", "Modelo", "Valor Diária", "Placa", "Situação" };
         return nomes[column];
     }
     

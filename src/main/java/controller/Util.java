@@ -4,17 +4,13 @@
  */
 package controller;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 /**
  *
  * @author joaom
  */
 public class Util {
-    public static final DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
     
     private Util() {
         throw new UnsupportedOperationException("Classe utilitária não pode ser instanciada");

@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -65,9 +66,9 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         tfValParcela = new javax.swing.JTextPane();
         jPanel2 = new javax.swing.JPanel();
         labCPF1 = new javax.swing.JLabel();
-        ftDataRetirada = new javax.swing.JFormattedTextField();
-        ftDataDevolucao = new javax.swing.JFormattedTextField();
         labCPF2 = new javax.swing.JLabel();
+        dtChooserDatRetirada = new com.toedter.calendar.JDateChooser();
+        dtChooserDatDevolucao = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
         PanBarraLateral = new javax.swing.JPanel();
         PanTitleBarraLateral = new javax.swing.JPanel();
@@ -170,6 +171,17 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         labFeedback1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         labFeedback1.setText("Veiculo");
 
+        cmbVeiculos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbVeiculosItemStateChanged(evt);
+            }
+        });
+        cmbVeiculos.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cmbVeiculosFocusLost(evt);
+            }
+        });
+
         labFeedback4.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         labFeedback4.setText("Valor Total");
 
@@ -180,11 +192,21 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         labFeedback6.setText("Forma de Pagamento");
 
         cmbFormPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crédito", "Débito", "Pix" }));
+        cmbFormPagamento.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbFormPagamentoItemStateChanged(evt);
+            }
+        });
 
         tfValTotal.setEnabled(false);
         jScrollPane2.setViewportView(tfValTotal);
 
         spnParcelas.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        spnParcelas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spnParcelasStateChanged(evt);
+            }
+        });
 
         labFeedback7.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         labFeedback7.setText("Valor Parcela");
@@ -195,49 +217,50 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         labCPF1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         labCPF1.setText("Data de Retirada");
 
-        try {
-            ftDataRetirada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
-        try {
-            ftDataDevolucao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         labCPF2.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         labCPF2.setText("Data de Devolução");
+
+        dtChooserDatRetirada.setDateFormatString("dd/MM/yyyy");
+
+        dtChooserDatDevolucao.setDateFormatString("dd/MM/yyyy");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(labCPF1)
-                        .addGap(18, 18, 18)
-                        .addComponent(ftDataRetirada, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(labCPF2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ftDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(dtChooserDatDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(labCPF1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dtChooserDatRetirada, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labCPF1)
-                    .addComponent(ftDataRetirada, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labCPF2)
-                    .addComponent(ftDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(labCPF1)
+                        .addGap(8, 8, 8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(dtChooserDatRetirada, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labCPF2)
+                        .addGap(17, 17, 17))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(dtChooserDatDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(12, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout PainelDadosLayout = new javax.swing.GroupLayout(PainelDados);
@@ -280,9 +303,9 @@ public class DlgNovaReserva extends javax.swing.JDialog {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelDadosLayout.createSequentialGroup()
                                         .addComponent(ftCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(137, 137, 137)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(228, 228, 228))))
+                        .addGap(175, 175, 175))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -303,14 +326,15 @@ public class DlgNovaReserva extends javax.swing.JDialog {
                         .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labFeedback)
                             .addComponent(cmbLocadora, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cmbVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labFeedback1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(PainelDadosLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                            .addComponent(labFeedback1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)))
                 .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(labFeedback6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -466,36 +490,31 @@ public class DlgNovaReserva extends javax.swing.JDialog {
 
     private void BotaoConfirmar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoConfirmar1ActionPerformed
         
-        try {
-            Date dat_inicio = Util.df.parse(ftDataRetirada.getText());
-            Date dat_fim = Util.df.parse(ftDataDevolucao.getText());
-            Veiculo veiculo = (Veiculo) cmbVeiculos.getSelectedItem();
-            double val_total =  (double) Util.calcularDiferencaEmDias(dat_inicio, dat_fim) * veiculo.getVal_diaria();
-            int qtd_parcelas = (int) spnParcelas.getValue();
-            double val_parcela = val_total * qtd_parcelas;
-            Date dat_pagamento = dat_inicio;
-            String forma_pagamento = cmbFormPagamento.getSelectedItem().toString();
-            Cliente cliente = gerIG.getGerDominio().pesquisarPorCPF(ftCPF.getText());
-            Locadora locadora = (Locadora) cmbLocadora.getSelectedItem();
-            
-            Contrato c = new Contrato(
-                    dat_inicio,
-                    dat_fim,
-                    dat_pagamento,
-                    forma_pagamento,
-                    val_total,
-                    val_parcela,
-                    qtd_parcelas,
-                    cliente,
-                    veiculo,
-                    locadora
-                );
-            
-            gerIG.getGerDominio().inserir(c);
+        Date dat_inicio = dtChooserDatRetirada.getDate();
+        Date dat_fim = dtChooserDatDevolucao.getDate();
+        Veiculo veiculo = (Veiculo) cmbVeiculos.getSelectedItem();
+        double val_total =  (double) Util.calcularDiferencaEmDias(dat_inicio, dat_fim) * veiculo.getVal_diaria();
+        int qtd_parcelas = (int) spnParcelas.getValue();
+        double val_parcela = val_total * qtd_parcelas;
+        Date dat_pagamento = dat_inicio;
+        String forma_pagamento = cmbFormPagamento.getSelectedItem().toString();
+        Cliente cliente = gerIG.getGerDominio().pesquisarPorCPF(ftCPF.getText());
+        Locadora locadora = (Locadora) cmbLocadora.getSelectedItem();
 
-        } catch (ParseException ex) {
-            Logger.getLogger(DlgNovaReserva.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Contrato c = new Contrato(
+                dat_inicio,
+                dat_fim,
+                dat_pagamento,
+                forma_pagamento,
+                val_total,
+                val_parcela,
+                qtd_parcelas,
+                cliente,
+                veiculo,
+                locadora
+            );
+
+        gerIG.getGerDominio().inserir(c);
 
 
         LimparCampos();
@@ -517,9 +536,49 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         
     }//GEN-LAST:event_formComponentShown
 
+    private void cmbVeiculosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbVeiculosFocusLost
+        atualizarValores();
+    }//GEN-LAST:event_cmbVeiculosFocusLost
+
+    private void spnParcelasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnParcelasStateChanged
+        atualizarValores();
+    }//GEN-LAST:event_spnParcelasStateChanged
+
+    private void cmbFormPagamentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbFormPagamentoItemStateChanged
+        atualizarValores();
+    }//GEN-LAST:event_cmbFormPagamentoItemStateChanged
+
+    private void cmbVeiculosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbVeiculosItemStateChanged
+        atualizarValores();
+    }//GEN-LAST:event_cmbVeiculosItemStateChanged
+
+    
+    private void atualizarValores(){
+        
+        Veiculo v = (Veiculo) cmbVeiculos.getSelectedItem();
+        Date dat_inicio = dtChooserDatRetirada.getDate();
+        Date dat_fim = dtChooserDatDevolucao.getDate();
+
+        double difDias = (double)(Util.calcularDiferencaEmDias(dat_inicio, dat_fim));
+        if(difDias < 1) difDias = 1;
+        
+        System.out.println(difDias);
+        
+        if ( v != null ) {
+            double valorTotal = difDias * v.getVal_diaria();
+                    System.out.println(valorTotal);
+
+            tfValTotal.setText(String.valueOf(valorTotal));
+            tfValParcela.setText(String.valueOf(valorTotal / (int) spnParcelas.getValue()));
+
+        }
+
+    }
+    
+    
     private void LimparCampos(){
-        ftDataRetirada.setText("");
-        ftDataDevolucao.setText("");
+        dtChooserDatRetirada.cleanup();
+        dtChooserDatDevolucao.cleanup();
         cmbVeiculos.setSelectedIndex(0);
         tfValTotal.setText("");
         spnParcelas.setValue(0);
@@ -549,9 +608,9 @@ public class DlgNovaReserva extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> cmbFormPagamento;
     private javax.swing.JComboBox<String> cmbLocadora;
     private javax.swing.JComboBox<String> cmbVeiculos;
+    private com.toedter.calendar.JDateChooser dtChooserDatDevolucao;
+    private com.toedter.calendar.JDateChooser dtChooserDatRetirada;
     private javax.swing.JFormattedTextField ftCPF;
-    private javax.swing.JFormattedTextField ftDataDevolucao;
-    private javax.swing.JFormattedTextField ftDataRetirada;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
