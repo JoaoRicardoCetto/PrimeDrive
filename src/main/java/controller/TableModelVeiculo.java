@@ -15,7 +15,7 @@ public class TableModelVeiculo extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 6;   // Quantidade de colunas da TABELA
+        return 6;   
     }
     
     @Override

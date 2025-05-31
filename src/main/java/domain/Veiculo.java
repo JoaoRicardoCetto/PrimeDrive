@@ -22,7 +22,7 @@ public class Veiculo implements Serializable{
     
 //    @Lob
 //    private byte[] foto;
-//    
+    
     @Column  (nullable = false)
     private double val_diaria;
     
