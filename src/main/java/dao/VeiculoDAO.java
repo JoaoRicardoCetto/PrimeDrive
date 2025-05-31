@@ -8,6 +8,7 @@ import domain.Veiculo;
 import domain.enums.SituacaoVeiculo;
 import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.HibernateException;
 
 
 /**
@@ -26,5 +27,10 @@ public class VeiculoDAO extends GenericDAO{
         }
         
         return veiculosDisponiveis;
+    }
+    
+    public void alterarEstadoVeiculo(Veiculo v) throws HibernateException {
+        v.setSitVeiculo(SituacaoVeiculo.ALUGADO);
+        alterar(v);
     }
 }

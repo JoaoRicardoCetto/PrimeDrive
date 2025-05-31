@@ -4,6 +4,7 @@
  */
 package controller;
 
+import domain.Veiculo;
 import viewer.DlgCadastroCliente;
 import viewer.DlgHome;
 import viewer.DlgReservas;
@@ -98,6 +99,15 @@ public class GerInterGraf {
     public void carregarCombo(JComboBox combo, Class classe) {
         try {
             List lista = gerDominio.listar(classe);                
+            combo.setModel(  new DefaultComboBoxModel( lista.toArray() )   );
+        } catch (HibernateException ex) {
+            JOptionPane.showMessageDialog(frmInicial, ex, "Erro ao carregar ComboBox" , JOptionPane.ERROR_MESSAGE );
+        }
+    }
+    
+    public void carregarComboVeiculosDisponíveis(JComboBox combo) {
+        try {
+            List lista = gerDominio.listarVeiculosDisponiveis();                
             combo.setModel(  new DefaultComboBoxModel( lista.toArray() )   );
         } catch (HibernateException ex) {
             JOptionPane.showMessageDialog(frmInicial, ex, "Erro ao carregar ComboBox" , JOptionPane.ERROR_MESSAGE );

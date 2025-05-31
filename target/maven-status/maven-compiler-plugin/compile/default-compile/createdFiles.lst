@@ -21,6 +21,7 @@ controller\GerenciadorDominio.class
 viewer\DlgNovaReserva$4.class
 viewer\DlgHome$1.class
 viewer\CadastrosSistema.class
+viewer\DlgVeiculos$4.class
 domain\Endereco.class
 viewer\DlgReservas.class
 domain\Contrato.class

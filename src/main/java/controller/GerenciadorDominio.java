@@ -37,6 +37,10 @@ public class GerenciadorDominio {
         return veiDAO.listarVeiculosDisponiveis();
     }
     
+    public void alterarEstadoVeiculo(Veiculo v){
+        veiDAO.alterarEstadoVeiculo(v);
+    }
+    
     public Cliente pesquisarPorCPF(String CPF){
         return cliDAO.pesquisarPorCPF(CPF);
     }

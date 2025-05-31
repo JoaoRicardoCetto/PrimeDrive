@@ -64,6 +64,11 @@ public class DlgVeiculos extends javax.swing.JDialog {
         PanBackground.setForeground(new java.awt.Color(255, 255, 255));
         PanBackground.setMinimumSize(new java.awt.Dimension(1360, 720));
         PanBackground.setPreferredSize(new java.awt.Dimension(1360, 720));
+        PanBackground.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                PanBackgroundComponentShown(evt);
+            }
+        });
         PanBackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(150, 150, 150));
@@ -262,6 +267,10 @@ public class DlgVeiculos extends javax.swing.JDialog {
         this.setVisible(false);
         gerIG.abrirDlgReservas();
     }//GEN-LAST:event_BotaoReservasActionPerformed
+
+    private void PanBackgroundComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_PanBackgroundComponentShown
+        tableModelVeiculo.setLista(gerIG.getGerDominio().listarVeiculosDisponiveis());
+    }//GEN-LAST:event_PanBackgroundComponentShown
 
     /**
      * @param args the command line arguments

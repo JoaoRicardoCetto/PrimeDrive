@@ -158,7 +158,7 @@
         <Container class="javax.swing.JPanel" name="PainelDados">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="410" y="210" width="940" height="490"/>
+              <AbsoluteConstraints x="400" y="210" width="940" height="490"/>
             </Constraint>
           </Constraints>
 
@@ -172,8 +172,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labFeedback4" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
-                                          <Component id="labFeedback6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labTotal" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                                          <Component id="labFormPag" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -182,8 +182,8 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labFeedback7" min="-2" pref="99" max="-2" attributes="0"/>
-                                          <Component id="labFeedback5" min="-2" pref="107" max="-2" attributes="0"/>
+                                          <Component id="labValPar" min="-2" pref="99" max="-2" attributes="0"/>
+                                          <Component id="labParcelas" min="-2" pref="107" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -197,10 +197,10 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labFeedback" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                                  <Component id="labLocadora" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="labFeedback1" min="-2" pref="58" max="-2" attributes="0"/>
+                                          <Component id="labVeiculo" min="-2" pref="58" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                                           <Component id="cmbVeiculos" min="-2" pref="230" max="-2" attributes="0"/>
                                       </Group>
@@ -213,7 +213,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="131" max="32767" attributes="0"/>
+                              <EmptySpace pref="133" max="32767" attributes="0"/>
                               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                           </Group>
@@ -240,13 +240,13 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labFeedback" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labLocadora" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmbLocadora" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="25" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="cmbVeiculos" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="labFeedback1" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="labVeiculo" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="105" max="32767" attributes="0"/>
                           </Group>
@@ -258,8 +258,8 @@
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="labFeedback6" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="labFeedback5" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="labFormPag" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="labParcelas" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="spnParcelas" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -270,12 +270,12 @@
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="labFeedback4" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="labTotal" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labFeedback7" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="labValPar" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="jScrollPane3" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
@@ -307,7 +307,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labFeedback">
+            <Component class="javax.swing.JLabel" name="labLocadora">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic UI Light" size="14" style="1"/>
@@ -339,7 +339,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoConfirmar1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="labFeedback1">
+            <Component class="javax.swing.JLabel" name="labVeiculo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic UI Light" size="14" style="1"/>
@@ -371,7 +371,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="labFeedback4">
+            <Component class="javax.swing.JLabel" name="labTotal">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic UI Light" size="14" style="1"/>
@@ -379,7 +379,7 @@
                 <Property name="text" type="java.lang.String" value="Valor Total"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labFeedback5">
+            <Component class="javax.swing.JLabel" name="labParcelas">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic UI Light" size="14" style="1"/>
@@ -387,7 +387,7 @@
                 <Property name="text" type="java.lang.String" value="N&#xba; de Parcelas"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labFeedback6">
+            <Component class="javax.swing.JLabel" name="labFormPag">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic UI Light" size="14" style="1"/>
@@ -436,7 +436,7 @@
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spnParcelasStateChanged"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="labFeedback7">
+            <Component class="javax.swing.JLabel" name="labValPar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic UI Light" size="14" style="1"/>
@@ -465,15 +465,15 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace pref="24" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="labCPF2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labDev" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="dtChooserDatDevolucao" min="-2" pref="91" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labCPF1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="labRet" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Component id="dtChooserDatRetirada" min="-2" pref="91" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -487,7 +487,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="labCPF1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labRet" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -497,14 +497,14 @@
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="labCPF2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="dtChooserDatDevolucao" min="-2" pref="37" max="-2" attributes="0"/>
                                   <EmptySpace pref="12" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="labDev" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -512,7 +512,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="labCPF1">
+                <Component class="javax.swing.JLabel" name="labRet">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI Light" size="14" style="1"/>
@@ -520,7 +520,7 @@
                     <Property name="text" type="java.lang.String" value="Data de Retirada"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="labCPF2">
+                <Component class="javax.swing.JLabel" name="labDev">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI Light" size="14" style="1"/>
