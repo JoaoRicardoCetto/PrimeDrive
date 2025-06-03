@@ -224,6 +224,11 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         dtChooserDatRetirada.setDateFormatString("dd/MM/yyyy");
 
         dtChooserDatDevolucao.setDateFormatString("dd/MM/yyyy");
+        dtChooserDatDevolucao.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                dtChooserDatDevolucaoPropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -290,7 +295,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
                                     .addComponent(spnParcelas, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
                                     .addComponent(jScrollPane3)))
                             .addComponent(labCPF))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(391, Short.MAX_VALUE))
                     .addGroup(PainelDadosLayout.createSequentialGroup()
                         .addGroup(PainelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labLocadora, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,7 +309,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelDadosLayout.createSequentialGroup()
                                         .addComponent(ftCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(137, 137, 137)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(175, 175, 175))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelDadosLayout.createSequentialGroup()
@@ -515,16 +520,22 @@ public class DlgNovaReserva extends javax.swing.JDialog {
                     veiculo,
                     locadora
                 );
+            
+            if(c != null){
+                gerIG.getGerDominio().inserir(c);
 
-            gerIG.getGerDominio().inserir(c);
+                //Ao contrato ser inserido, o veículo se torna indisponível e não pode ser alugado
+                gerIG.getGerDominio().alterarEstadoVeiculo(veiculo);
 
-            //Ao contrato ser inserido, o veículo se torna indisponível e não pode ser alugado
-            gerIG.getGerDominio().alterarEstadoVeiculo(veiculo);
-
-            //ComboBox é recarregada para veículo alugado não aparecer mais
-            gerIG.carregarComboVeiculosDisponíveis(cmbVeiculos);
-
-            LimparCampos();
+                //ComboBox é recarregada para veículo alugado não aparecer mais
+                gerIG.carregarComboVeiculosDisponíveis(cmbVeiculos);
+                
+                JOptionPane.showMessageDialog(this, "Reserva inserida com sucesso.", "Nova reserva", JOptionPane.INFORMATION_MESSAGE);  
+                LimparCampos();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Erro na criação da reserva", "ERRO Reserva", JOptionPane.ERROR_MESSAGE );
+            }
         }
         
     }//GEN-LAST:event_BotaoConfirmar1ActionPerformed
@@ -542,6 +553,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         gerIG.carregarComboVeiculosDisponíveis(cmbVeiculos);
         gerIG.carregarCombo(cmbLocadora, Locadora.class);
+        cmbVeiculos.setSelectedIndex(0);
         
     }//GEN-LAST:event_formComponentShown
 
@@ -560,6 +572,12 @@ public class DlgNovaReserva extends javax.swing.JDialog {
     private void cmbVeiculosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbVeiculosItemStateChanged
         atualizarValores();
     }//GEN-LAST:event_cmbVeiculosItemStateChanged
+
+    private void dtChooserDatDevolucaoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dtChooserDatDevolucaoPropertyChange
+        
+        if(dtChooserDatRetirada.getDate() != null)
+            atualizarValores();
+    }//GEN-LAST:event_dtChooserDatDevolucaoPropertyChange
 
     private boolean validarCampos() {
         StringBuilder msgErro = new StringBuilder();
@@ -617,24 +635,28 @@ public class DlgNovaReserva extends javax.swing.JDialog {
     
     private void atualizarValores(){
         
-        Veiculo v = (Veiculo) cmbVeiculos.getSelectedItem();
-        Date dat_inicio = dtChooserDatRetirada.getDate();
-        Date dat_fim = dtChooserDatDevolucao.getDate();
+        try{
+            Veiculo v = (Veiculo) cmbVeiculos.getSelectedItem();
+            Date dat_inicio = dtChooserDatRetirada.getDate();
+            Date dat_fim = dtChooserDatDevolucao.getDate();
 
-        double difDias = (double)(Util.calcularDiferencaEmDias(dat_inicio, dat_fim));
-        if(difDias < 1) difDias = 1;
-        
-        System.out.println(difDias);
-        
-        if ( v != null ) {
-            double valorTotal = difDias * v.getVal_diaria();
-                    System.out.println(valorTotal);
+            double difDias = (double)(Util.calcularDiferencaEmDias(dat_inicio, dat_fim));
+            if(difDias < 1) difDias = 1;
 
-            tfValTotal.setText(String.valueOf(valorTotal));
-            tfValParcela.setText(String.valueOf(valorTotal / (int) spnParcelas.getValue()));
 
+            if ( v != null && dat_inicio != null && dat_fim != null) {
+                double valorTotal = difDias * v.getVal_diaria();
+
+                tfValTotal.setText(String.valueOf(valorTotal));
+                tfValParcela.setText(String.valueOf(valorTotal / (int) spnParcelas.getValue()));
+
+            }
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(this, "Erro: Preencha os campos obrigarórios", "Campos obrigatórios", JOptionPane.WARNING_MESSAGE);
+            validarCampos();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Erro inesperado: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
-
     }
     
     

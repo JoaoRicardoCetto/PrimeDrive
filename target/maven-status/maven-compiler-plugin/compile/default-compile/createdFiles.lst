@@ -37,6 +37,7 @@ viewer\DlgNovaReserva$5.class
 viewer\DlgReservas$1.class
 controller\TableModelVeiculo.class
 domain\Veiculo.class
+viewer\DlgNovaReserva$11.class
 viewer\FrmInicial.class
 viewer\CadastrosSistema$5.class
 viewer\DlgCadastroCliente$2.class
