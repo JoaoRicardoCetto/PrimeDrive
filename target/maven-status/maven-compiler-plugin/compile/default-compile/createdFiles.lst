@@ -37,11 +37,11 @@ viewer\DlgNovaReserva$5.class
 viewer\DlgReservas$1.class
 controller\TableModelVeiculo.class
 domain\Veiculo.class
-viewer\DlgNovaReserva$11.class
 viewer\FrmInicial.class
 viewer\CadastrosSistema$5.class
 viewer\DlgCadastroCliente$2.class
 viewer\FrmInicial$2.class
+viewer\DlgVeiculos$6.class
 dao\GenericDAO.class
 viewer\DlgNovaReserva$9.class
 viewer\DlgHome$3.class
@@ -52,5 +52,6 @@ viewer\DlgNovaReserva$2.class
 viewer\CadastrosSistema$7.class
 domain\Locadora.class
 viewer\DlgCadastroCliente$1.class
+viewer\DlgVeiculos$5.class
 viewer\DlgReservas$4.class
 viewer\CadastrosSistema$4.class

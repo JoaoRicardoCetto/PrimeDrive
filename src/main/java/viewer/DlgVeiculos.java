@@ -58,6 +58,8 @@ public class DlgVeiculos extends javax.swing.JDialog {
         PanTabela = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabVeiculos = new javax.swing.JTable();
+        btnDisponivel = new javax.swing.JButton();
+        btnTodos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -121,7 +123,6 @@ public class DlgVeiculos extends javax.swing.JDialog {
         PanBackground.add(PanCarros, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 890, -1));
 
         jLabel2.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
-        jLabel2.setText("Veiculos");
         PanBackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
 
         PanBarraLateral.setBackground(new java.awt.Color(51, 51, 51));
@@ -227,14 +228,36 @@ public class DlgVeiculos extends javax.swing.JDialog {
         PanTabela.setLayout(PanTabelaLayout);
         PanTabelaLayout.setHorizontalGroup(
             PanTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
+            .addGroup(PanTabelaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
         );
         PanTabelaLayout.setVerticalGroup(
             PanTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+            .addGroup(PanTabelaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        PanBackground.add(PanTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, 890, 350));
+        PanBackground.add(PanTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 890, 350));
+
+        btnDisponivel.setText("Disponíveis");
+        btnDisponivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDisponivelActionPerformed(evt);
+            }
+        });
+        PanBackground.add(btnDisponivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, 110, 30));
+
+        btnTodos.setText("Todos");
+        btnTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTodosActionPerformed(evt);
+            }
+        });
+        PanBackground.add(btnTodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, 110, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -269,8 +292,16 @@ public class DlgVeiculos extends javax.swing.JDialog {
     }//GEN-LAST:event_BotaoReservasActionPerformed
 
     private void PanBackgroundComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_PanBackgroundComponentShown
-        tableModelVeiculo.setLista(gerIG.getGerDominio().listarVeiculosDisponiveis());
+        tableModelVeiculo.setLista(gerIG.getGerDominio().listar(Veiculo.class));
     }//GEN-LAST:event_PanBackgroundComponentShown
+
+    private void btnDisponivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisponivelActionPerformed
+        tableModelVeiculo.setLista(gerIG.getGerDominio().listarVeiculosDisponiveis());
+    }//GEN-LAST:event_btnDisponivelActionPerformed
+
+    private void btnTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTodosActionPerformed
+        tableModelVeiculo.setLista(gerIG.getGerDominio().listar(Veiculo.class));
+    }//GEN-LAST:event_btnTodosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,6 +322,8 @@ public class DlgVeiculos extends javax.swing.JDialog {
     private javax.swing.JPanel PanTabela;
     private javax.swing.JPanel PanTitleBarraLateral;
     private javax.swing.JTable TabVeiculos;
+    private javax.swing.JButton btnDisponivel;
+    private javax.swing.JButton btnTodos;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
