@@ -193,11 +193,6 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         labFormPag.setText("Forma de Pagamento");
 
         cmbFormPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crédito", "Débito", "Pix" }));
-        cmbFormPagamento.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbFormPagamentoItemStateChanged(evt);
-            }
-        });
 
         tfValTotal.setEnabled(false);
         jScrollPane2.setViewportView(tfValTotal);
@@ -564,10 +559,6 @@ public class DlgNovaReserva extends javax.swing.JDialog {
     private void spnParcelasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnParcelasStateChanged
         atualizarValores();
     }//GEN-LAST:event_spnParcelasStateChanged
-
-    private void cmbFormPagamentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbFormPagamentoItemStateChanged
-        atualizarValores();
-    }//GEN-LAST:event_cmbFormPagamentoItemStateChanged
 
     private void cmbVeiculosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbVeiculosItemStateChanged
         atualizarValores();
