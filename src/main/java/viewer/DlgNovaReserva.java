@@ -656,7 +656,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         dtChooserDatDevolucao.cleanup();
         cmbVeiculos.setSelectedIndex(0);
         tfValTotal.setText("");
-        spnParcelas.setValue(0);
+        spnParcelas.setValue(1);
         tfValParcela.setText("");
         cmbFormPagamento.setSelectedIndex(0);
         ftCPF.setText("");

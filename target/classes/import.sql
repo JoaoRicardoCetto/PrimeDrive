@@ -32,7 +32,6 @@ INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idL
 INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idLocadora, idMarca) VALUES (12, 'Golf Comfort', 'GOL5C67', 0, 'Hatch', 120.00, 3, 5);
 INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idLocadora, idMarca) VALUES (13, 'Spin LTZ',     'SPI8D90', 0, 'MVP',   130.00, 4, 4);
 INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idLocadora, idMarca) VALUES (14, 'Fit EX',       'FIT3E21', 0, 'Hatch', 110.00, 5, 2);
-
 INSERT INTO contrato (idContrato, dat_inicio, dat_fim, dat_pagamento, forma_pagamento, qtd_parcelas, val_parcela, val_total, idCliente, idLocadora, idVeiculo) VALUES (1, '2025-05-01','2025-05-05','2025-05-01','Cartão',   1, 750.00, 750.00, 1, 1, 1);
 INSERT INTO contrato (idContrato, dat_inicio, dat_fim, dat_pagamento, forma_pagamento, qtd_parcelas, val_parcela, val_total, idCliente, idLocadora, idVeiculo) VALUES (2, '2025-06-10','2025-06-15','2025-06-10','Dinheiro', 1, 800.00, 800.00, 2, 1, 2);
 INSERT INTO contrato (idContrato, dat_inicio, dat_fim, dat_pagamento, forma_pagamento, qtd_parcelas, val_parcela, val_total, idCliente, idLocadora, idVeiculo) VALUES (3, '2025-07-01','2025-07-03','2025-06-28','Boleto',   2,  75.00, 150.00, 3, 2, 3);
