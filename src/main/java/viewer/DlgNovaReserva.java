@@ -549,6 +549,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         gerIG.carregarComboVeiculosDisponíveis(cmbVeiculos);
         gerIG.carregarCombo(cmbLocadora, Locadora.class);
         cmbVeiculos.setSelectedIndex(0);
+        ftCPF.setText(gerIG.getGerDominio().getUsuarioLogado().getCpf());
         
     }//GEN-LAST:event_formComponentShown
 
@@ -608,9 +609,6 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         String cpf = ftCPF.getText();
         if (cpf.isEmpty()) {
             msgErro.append("Informe um CPF.\n");
-            labCPF.setForeground(Color.red);
-        } else if (!Util.isCPF(cpf)) {
-            msgErro.append("CPF inválido.\n");
             labCPF.setForeground(Color.red);
         }
 

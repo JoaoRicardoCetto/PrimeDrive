@@ -23,6 +23,7 @@ viewer\DlgHome$1.class
 viewer\CadastrosSistema.class
 viewer\DlgVeiculos$4.class
 domain\Endereco.class
+controller\exceptions\AutenticacaoException.class
 viewer\DlgReservas.class
 domain\Contrato.class
 viewer\DlgReservas$2.class
@@ -52,6 +53,7 @@ viewer\DlgNovaReserva$2.class
 viewer\CadastrosSistema$7.class
 domain\Locadora.class
 viewer\DlgCadastroCliente$1.class
+dao\ContratoDAO.class
 viewer\DlgVeiculos$5.class
 viewer\DlgReservas$4.class
 viewer\CadastrosSistema$4.class

@@ -13,11 +13,11 @@ INSERT INTO locadora (idLocadora, cnpj, nome, telefone, idEndereco) VALUES (2, '
 INSERT INTO locadora (idLocadora, cnpj, nome, telefone, idEndereco) VALUES (3, '11222333000155', 'BelaCar Recife',  '(81) 3500-9876', 3);
 INSERT INTO locadora (idLocadora, cnpj, nome, telefone, idEndereco) VALUES (4, '22333444000166', 'BH Rent a Car',   '(31) 3333-4444', 4);
 INSERT INTO locadora (idLocadora, cnpj, nome, telefone, idEndereco) VALUES (5, '33444555000177', 'RioDrive',        '(21) 2222-3333', 5);
-INSERT INTO cliente (idCliente, cpf, dat_nasc, email, nome, sexo, telefone, idEndereco) VALUES (1, '123.456.789-00', '1985-05-20', 'joao.silva@gmail.com',    'João Silva',   'M', '(11) 98888-0001', 1);
-INSERT INTO cliente (idCliente, cpf, dat_nasc, email, nome, sexo, telefone, idEndereco) VALUES (2, '987.654.321-11', '1990-08-15', 'maria.oliveira@yahoo.com', 'Maria Oliveira','F','(19) 97777-0002', 2);
-INSERT INTO cliente (idCliente, cpf, dat_nasc, email, nome, sexo, telefone, idEndereco) VALUES (3, '111.222.333-44', '1978-12-05', 'carlos.pereira@uol.com',   'Carlos Pereira','M','(81) 96666-0003', 3);
-INSERT INTO cliente (idCliente, cpf, dat_nasc, email, nome, sexo, telefone, idEndereco) VALUES (4, '555.666.777-88', '2000-01-30', 'ana.souza@hotmail.com',     'Ana Souza',     'F','(31) 95555-0004', 4);
-INSERT INTO cliente (idCliente, cpf, dat_nasc, email, nome, sexo, telefone, idEndereco) VALUES (5, '999.888.777-66', '1995-03-25', 'eduardo.ramos@gmail.com',   'Eduardo Ramos', 'M','(21) 94444-0005', 5);
+INSERT INTO cliente (idCliente, cpf, senha, dat_nasc, email, nome, sexo, telefone, idEndereco) VALUES (1, '123.456.789-00', '123', '1985-05-20', 'joao.silva@gmail.com',    'João Silva',   'M', '(11) 98888-0001', 1);
+INSERT INTO cliente (idCliente, cpf, senha, dat_nasc, email, nome, sexo, telefone, idEndereco) VALUES (2, '987.654.321-11', '123', '1990-08-15', 'maria.oliveira@yahoo.com', 'Maria Oliveira','F','(19) 97777-0002', 2);
+INSERT INTO cliente (idCliente, cpf, senha, dat_nasc, email, nome, sexo, telefone, idEndereco) VALUES (3, '111.222.333-44', '123', '1978-12-05', 'carlos.pereira@uol.com',   'Carlos Pereira','M','(81) 96666-0003', 3);
+INSERT INTO cliente (idCliente, cpf, senha, dat_nasc, email, nome, sexo, telefone, idEndereco) VALUES (4, '555.666.777-88', '123', '2000-01-30', 'ana.souza@hotmail.com',     'Ana Souza',     'F','(31) 95555-0004', 4);
+INSERT INTO cliente (idCliente, cpf, senha, dat_nasc, email, nome, sexo, telefone, idEndereco) VALUES (5, '999.888.777-66', '123', '1995-03-25', 'eduardo.ramos@gmail.com',   'Eduardo Ramos', 'M','(21) 94444-0005', 5);
 INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idLocadora, idMarca) VALUES (1, 'Corolla XEi',  'ABC1D23', 1, 'Sedan', 150.00, 1, 1);
 INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idLocadora, idMarca) VALUES (2, 'Civic LX',     'XYZ9Z99', 1, 'Sedan', 160.00, 1, 2);
 INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idLocadora, idMarca) VALUES (3, 'Ka SE',        'KAT4A56', 1, 'Hatch',  80.00, 2, 3);
@@ -32,7 +32,7 @@ INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idL
 INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idLocadora, idMarca) VALUES (12, 'Golf Comfort', 'GOL5C67', 0, 'Hatch', 120.00, 3, 5);
 INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idLocadora, idMarca) VALUES (13, 'Spin LTZ',     'SPI8D90', 0, 'MVP',   130.00, 4, 4);
 INSERT INTO veiculo (idVeiculo, modelo, placa, sitVeiculo, tipo, val_diaria, idLocadora, idMarca) VALUES (14, 'Fit EX',       'FIT3E21', 0, 'Hatch', 110.00, 5, 2);
-INSERT INTO contrato (idContrato, dat_inicio, dat_fim, dat_pagamento, forma_pagamento, qtd_parcelas, val_parcela, val_total, idCliente, idLocadora, idVeiculo) VALUES (1, '2025-05-01','2025-05-05','2025-05-01','Cartão',   1, 750.00, 750.00, 1, 1, 1);
+INSERT INTO contrato (idContrato, dat_inicio, dat_fim, dat_pagamento, forma_pagamento, qtd_parcelas, val_parcela, val_total, idCliente, idLocadora, idVeiculo) VALUES (1, '2025-05-01','2025-05-05','2025-05-01','Cartao',   1, 750.00, 750.00, 1, 1, 1);
 INSERT INTO contrato (idContrato, dat_inicio, dat_fim, dat_pagamento, forma_pagamento, qtd_parcelas, val_parcela, val_total, idCliente, idLocadora, idVeiculo) VALUES (2, '2025-06-10','2025-06-15','2025-06-10','Dinheiro', 1, 800.00, 800.00, 2, 1, 2);
 INSERT INTO contrato (idContrato, dat_inicio, dat_fim, dat_pagamento, forma_pagamento, qtd_parcelas, val_parcela, val_total, idCliente, idLocadora, idVeiculo) VALUES (3, '2025-07-01','2025-07-03','2025-06-28','Boleto',   2,  75.00, 150.00, 3, 2, 3);
 INSERT INTO contrato (idContrato, dat_inicio, dat_fim, dat_pagamento, forma_pagamento, qtd_parcelas, val_parcela, val_total, idCliente, idLocadora, idVeiculo) VALUES (4, '2025-08-20','2025-08-27','2025-08-20','Cartão',   3,  30.00,  90.00, 4, 2, 4);

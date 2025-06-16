@@ -5,6 +5,14 @@
 package viewer;
 
 import controller.GerInterGraf;
+import controller.Util;
+import controller.exceptions.AutenticacaoException;
+import domain.Cliente;
+import java.awt.Color;
+import java.util.Date;
+import java.util.NoSuchElementException;
+import javax.swing.JOptionPane;
+import org.hibernate.HibernateException;
 
 /**
  *
@@ -33,11 +41,11 @@ public class FrmInicial extends javax.swing.JFrame {
         PanTituloPag = new javax.swing.JPanel();
         LabTituloNovaReserva = new javax.swing.JLabel();
         PainelDados = new javax.swing.JPanel();
-        LabCPF = new javax.swing.JLabel();
-        TFCPF = new javax.swing.JFormattedTextField();
+        labSenha = new javax.swing.JLabel();
+        tfCPF = new javax.swing.JFormattedTextField();
         TituloCad = new javax.swing.JLabel();
-        LabCPF1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        labCPF = new javax.swing.JLabel();
+        tfSenha = new javax.swing.JTextField();
         TituloCad1 = new javax.swing.JLabel();
         BotaoEntrar = new javax.swing.JButton();
         BotaoCadastrar = new javax.swing.JButton();
@@ -86,24 +94,24 @@ public class FrmInicial extends javax.swing.JFrame {
         PainelDados.setForeground(new java.awt.Color(255, 255, 255));
         PainelDados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LabCPF.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
-        LabCPF.setText("Senha");
-        PainelDados.add(LabCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, 30));
+        labSenha.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        labSenha.setText("Senha");
+        PainelDados.add(labSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, 30));
 
         try {
-            TFCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            tfCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        PainelDados.add(TFCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 79, 36));
+        PainelDados.add(tfCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 79, 36));
 
         TituloCad.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         PainelDados.add(TituloCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        LabCPF1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
-        LabCPF1.setText("CPF");
-        PainelDados.add(LabCPF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, 30));
-        PainelDados.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 220, 30));
+        labCPF.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        labCPF.setText("CPF");
+        PainelDados.add(labCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, 30));
+        PainelDados.add(tfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 220, 30));
 
         TituloCad1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         TituloCad1.setText("Informe as informações a seguir para acessar sua conta");
@@ -208,21 +216,62 @@ public class FrmInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoEntrarActionPerformed
-        this.setVisible(false);
-        gerIG.abrirDlgHome();
+        if(validarCampos()){
+            try{
+                Cliente cli = gerIG.getGerDominio().login(tfCPF.getText(), tfSenha.getText());
+                
+                gerIG.getGerDominio().setUsuarioLogado(cli);
+                this.setVisible(false);
+                gerIG.abrirDlgHome();
+            } catch (HibernateException | ClassCastException | NoSuchElementException | AutenticacaoException ex) {
+                    JOptionPane.showMessageDialog(this, "ERRO ao fazer login! Usuário ou senha inválidos", "Login", JOptionPane.ERROR_MESSAGE);
+                    labCPF.setForeground(Color.red);
+                    labSenha.setForeground(Color.red);
+                }
+        }
     }//GEN-LAST:event_BotaoEntrarActionPerformed
 
     private void BotaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastrarActionPerformed
         gerIG.abrirDlgCadastroCliente();
     }//GEN-LAST:event_BotaoCadastrarActionPerformed
 
+    
+    private boolean validarCampos() {
+        StringBuilder msgErro = new StringBuilder();
 
+        // Resetar cores
+        tfCPF.setForeground(Color.black);
+        tfSenha.setForeground(Color.black);
+
+
+        // Validar CPF
+        String cpf = tfCPF.getText();
+        if (cpf.isEmpty()) {
+            msgErro.append("Informe um CPF.\n");
+            labCPF.setForeground(Color.red);
+        }
+        
+        //Validar Senha
+        String senha = tfSenha.getText();
+        if (senha.isEmpty()) {
+            msgErro.append("Informe uma senha.\n");
+            labSenha.setForeground(Color.red);
+        } 
+
+        // Se houver erro, mostrar diálogo
+        if (msgErro.length() > 0) {
+            JOptionPane.showMessageDialog(this, msgErro.toString(), "ERRO Login", JOptionPane.ERROR_MESSAGE );
+            return false;
+        }
+
+        return true;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoCadastrar;
     private javax.swing.JButton BotaoEntrar;
     private javax.swing.JLabel LabAluguelDeCarros;
-    private javax.swing.JLabel LabCPF;
-    private javax.swing.JLabel LabCPF1;
     private javax.swing.JLabel LabIMGCarro;
     private javax.swing.JLabel LabPrimeDrive;
     private javax.swing.JLabel LabTituloNovaReserva;
@@ -231,11 +280,13 @@ public class FrmInicial extends javax.swing.JFrame {
     private javax.swing.JPanel PanBarraLateral;
     private javax.swing.JPanel PanTitleBarraLateral;
     private javax.swing.JPanel PanTituloPag;
-    private javax.swing.JFormattedTextField TFCPF;
     private javax.swing.JLabel TituloCad;
     private javax.swing.JLabel TituloCad1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labCPF;
+    private javax.swing.JLabel labSenha;
+    private javax.swing.JFormattedTextField tfCPF;
+    private javax.swing.JTextField tfSenha;
     // End of variables declaration//GEN-END:variables
 }

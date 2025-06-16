@@ -24,7 +24,7 @@ public class DlgReservas extends javax.swing.JDialog {
         initComponents();
         this.gerIG = gerIG;
         
-        tableModelContrato.setLista(gerIG.getGerDominio().listar(Contrato.class));
+        tableModelContrato.setLista(gerIG.getGerDominio().listarContratosUsuario());
         
         TabReservas.setModel(tableModelContrato);
         
@@ -275,7 +275,7 @@ public class DlgReservas extends javax.swing.JDialog {
     }//GEN-LAST:event_BotaoVeiculosActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-        tableModelContrato.setLista(gerIG.getGerDominio().listar(Contrato.class));
+        tableModelContrato.setLista(gerIG.getGerDominio().listarContratosUsuario());
     }//GEN-LAST:event_formComponentShown
 
 

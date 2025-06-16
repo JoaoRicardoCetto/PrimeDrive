@@ -28,6 +28,9 @@ public class Cliente implements Serializable{
     @Column (nullable = false, unique = true, length = 14, updatable = false)
     private String cpf;
     
+    @Column (nullable = false)
+    private String senha;
+    
     @Temporal ( value = TemporalType.DATE )
     @Column (updatable = false)
     private Date dat_nasc;
@@ -52,10 +55,11 @@ public class Cliente implements Serializable{
     public Cliente() {
     }
 
-    public Cliente(int id, String nome, String cpf, Date dat_nasc, String email, String telefone, char sexo, Endereco endereco) {
+    public Cliente(int id, String nome, String cpf, String senha, Date dat_nasc, String email, String telefone, char sexo, Endereco endereco) {
         this.idCliente = id;
         this.nome = nome;
         this.cpf = cpf;
+        this.senha = senha;
         this.dat_nasc = dat_nasc;
         this.email = email;
         this.telefone = telefone;
@@ -130,6 +134,14 @@ public class Cliente implements Serializable{
 
     public void setSexo(char sexo) {
         this.sexo = sexo;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
     

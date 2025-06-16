@@ -37,16 +37,15 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
         PainelDados = new javax.swing.JPanel();
         LabCidade = new javax.swing.JLabel();
         LabDatNasc = new javax.swing.JLabel();
-        TFNome = new javax.swing.JFormattedTextField();
-        FTDatNasc = new javax.swing.JFormattedTextField();
+        tfNome = new javax.swing.JFormattedTextField();
         LabCPF = new javax.swing.JLabel();
-        TFSenha = new javax.swing.JFormattedTextField();
+        tfCEP = new javax.swing.JFormattedTextField();
         LabNome = new javax.swing.JLabel();
         LabCEP = new javax.swing.JLabel();
-        TFCPF = new javax.swing.JFormattedTextField();
-        TFCidade = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        tfCPF = new javax.swing.JFormattedTextField();
+        tfCidade = new javax.swing.JTextField();
         TituloCad = new javax.swing.JLabel();
+        dtChooserDatRetirada = new com.toedter.calendar.JDateChooser();
         PanBarraLateral = new javax.swing.JPanel();
         PanTitleBarraLateral = new javax.swing.JPanel();
         LabPrimeDrive = new javax.swing.JLabel();
@@ -101,25 +100,18 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
         LabDatNasc.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         LabDatNasc.setText("Data de Nascimento");
         PainelDados.add(LabDatNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
-        PainelDados.add(TFNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 330, 36));
-
-        try {
-            FTDatNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        PainelDados.add(FTDatNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 80, 36));
+        PainelDados.add(tfNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 330, 36));
 
         LabCPF.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         LabCPF.setText("CPF");
         PainelDados.add(LabCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, 30));
 
         try {
-            TFSenha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            tfCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        PainelDados.add(TFSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 79, 36));
+        PainelDados.add(tfCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 79, 36));
 
         LabNome.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         LabNome.setText("Nome");
@@ -130,36 +122,22 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
         PainelDados.add(LabCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         try {
-            TFCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            tfCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        PainelDados.add(TFCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 79, 36));
+        PainelDados.add(tfCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 79, 36));
 
-        TFCidade.setToolTipText("");
-        TFCidade.setPreferredSize(new java.awt.Dimension(488, 36));
-        PainelDados.add(TFCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 330, 36));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(120, 150));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 118, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 148, Short.MAX_VALUE)
-        );
-
-        PainelDados.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, -1, -1));
+        tfCidade.setToolTipText("");
+        tfCidade.setPreferredSize(new java.awt.Dimension(488, 36));
+        PainelDados.add(tfCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 330, 36));
 
         TituloCad.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         TituloCad.setText("Informe as informações a seguir para realizar seu cadastro");
         PainelDados.add(TituloCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        dtChooserDatRetirada.setDateFormatString("dd/MM/yyyy");
+        PainelDados.add(dtChooserDatRetirada, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, 30));
 
         PanBackground.add(PainelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 770, 390));
 
@@ -254,6 +232,8 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastrarActionPerformed
+        
+
         this.setVisible(false);
         gerIG.voltarPag(this);
     }//GEN-LAST:event_BotaoCadastrarActionPerformed
@@ -267,7 +247,6 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoCadastrar;
     private javax.swing.JButton BotaoCancelar;
-    private javax.swing.JFormattedTextField FTDatNasc;
     private javax.swing.JLabel LabAluguelDeCarros;
     private javax.swing.JLabel LabCEP;
     private javax.swing.JLabel LabCPF;
@@ -282,12 +261,12 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
     private javax.swing.JPanel PanBarraLateral;
     private javax.swing.JPanel PanTitleBarraLateral;
     private javax.swing.JPanel PanTituloPag;
-    private javax.swing.JFormattedTextField TFCPF;
-    private javax.swing.JTextField TFCidade;
-    private javax.swing.JFormattedTextField TFNome;
-    private javax.swing.JFormattedTextField TFSenha;
     private javax.swing.JLabel TituloCad;
-    private javax.swing.JPanel jPanel1;
+    private com.toedter.calendar.JDateChooser dtChooserDatRetirada;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JFormattedTextField tfCEP;
+    private javax.swing.JFormattedTextField tfCPF;
+    private javax.swing.JTextField tfCidade;
+    private javax.swing.JFormattedTextField tfNome;
     // End of variables declaration//GEN-END:variables
 }
