@@ -27,6 +27,7 @@ controller\exceptions\AutenticacaoException.class
 viewer\DlgReservas.class
 domain\Contrato.class
 viewer\DlgReservas$2.class
+viewer\DlgCadastroCliente$3.class
 viewer\DlgNovaReserva$7.class
 controller\Util.class
 viewer\DlgHome$2.class

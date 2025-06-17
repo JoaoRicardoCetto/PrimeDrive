@@ -147,6 +147,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        ftCPF.setEnabled(false);
 
         labLocadora.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         labLocadora.setText("Locadora");
