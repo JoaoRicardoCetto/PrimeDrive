@@ -161,7 +161,7 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        PainelDados.add(tfCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 79, 36));
+        PainelDados.add(tfCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 100, 36));
 
         LabCPF.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         LabCPF.setText("CPF");
@@ -177,7 +177,7 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
                 tfCEPFocusLost(evt);
             }
         });
-        PainelDados.add(tfCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 80, 36));
+        PainelDados.add(tfCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 100, 36));
 
         LabCEP.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         LabCEP.setText("CEP");
