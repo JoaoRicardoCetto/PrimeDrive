@@ -21,7 +21,7 @@
         <configuration>
           <transformers>
             <transformer>
-              <mainClass>controller.GerInterGrafica</mainClass>
+              <mainClass>controller.GerInterGraf</mainClass>
             </transformer>
           </transformers>
         </configuration>
