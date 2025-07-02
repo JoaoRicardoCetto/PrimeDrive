@@ -19,6 +19,7 @@ viewer\DlgHome$2.class
 viewer\DlgVeiculos$3.class
 viewer\DlgNovaReserva$5.class
 domain\Veiculo.class
+viewer\DlgNovaReserva$11.class
 viewer\FrmInicial.class
 viewer\CadastrosSistema$5.class
 viewer\FrmInicial$2.class

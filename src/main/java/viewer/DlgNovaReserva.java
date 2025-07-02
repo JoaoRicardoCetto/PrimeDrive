@@ -184,6 +184,12 @@ public class DlgNovaReserva extends javax.swing.JDialog {
             }
         });
 
+        cmbLocadora.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                cmbLocadoraComponentShown(evt);
+            }
+        });
+
         labTotal.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
         labTotal.setText("Valor Total");
 
@@ -571,6 +577,10 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         if(dtChooserDatRetirada.getDate() != null)
             atualizarValores();
     }//GEN-LAST:event_dtChooserDatDevolucaoPropertyChange
+
+    private void cmbLocadoraComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_cmbLocadoraComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbLocadoraComponentShown
 
     private boolean validarCampos() {
         StringBuilder msgErro = new StringBuilder();
