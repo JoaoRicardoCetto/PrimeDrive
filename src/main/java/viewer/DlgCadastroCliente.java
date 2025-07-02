@@ -6,7 +6,6 @@ import domain.Cliente;
 import domain.Endereco;
 import java.awt.Color;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Date;
 import javax.swing.JOptionPane;
 

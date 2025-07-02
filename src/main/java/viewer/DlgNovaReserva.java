@@ -11,10 +11,7 @@ import domain.Contrato;
 import domain.Locadora;
 import domain.Veiculo;
 import java.awt.Color;
-import java.text.ParseException;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**

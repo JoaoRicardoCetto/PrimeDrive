@@ -2,7 +2,6 @@ package viewer;
 
 import controller.GerInterGraf;
 import controller.TableModelContrato;
-import domain.Contrato;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

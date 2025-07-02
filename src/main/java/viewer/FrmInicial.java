@@ -5,11 +5,9 @@
 package viewer;
 
 import controller.GerInterGraf;
-import controller.Util;
 import controller.exceptions.AutenticacaoException;
 import domain.Cliente;
 import java.awt.Color;
-import java.util.Date;
 import java.util.NoSuchElementException;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
