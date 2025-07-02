@@ -624,26 +624,31 @@ public class DlgNovaReserva extends javax.swing.JDialog {
     
     
     private void atualizarValores(){
+        Date dat_inicio = dtChooserDatRetirada.getDate();
+        Date dat_fim    = dtChooserDatDevolucao.getDate();
+
+        if (dat_inicio == null || dat_fim == null) {
+            return;
+        }
         
         try{
+        
             Veiculo v = (Veiculo) cmbVeiculos.getSelectedItem();
-            Date dat_inicio = dtChooserDatRetirada.getDate();
-            Date dat_fim = dtChooserDatDevolucao.getDate();
-
+            
             double difDias = (double)(Util.calcularDiferencaEmDias(dat_inicio, dat_fim));
             if(difDias < 1) difDias = 1;
 
-
-            if ( v != null && dat_inicio != null && dat_fim != null) {
+            if ( v != null) {
                 double valorTotal = difDias * v.getVal_diaria();
-
-                tfValTotal.setText(String.valueOf(valorTotal));
-                tfValParcela.setText(String.valueOf(valorTotal / (int) spnParcelas.getValue()));
+                tfValTotal.setText(String.format("%.2f", valorTotal));
+                
+                float valParcela = (float) (valorTotal / (int) spnParcelas.getValue());
+                tfValParcela.setText(String.format("%.2f", valParcela));
 
             }
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(this, "Erro: Preencha os campos obrigarórios", "Campos obrigatórios", JOptionPane.WARNING_MESSAGE);
-            validarCampos();
+            //validarCampos();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Erro inesperado: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
