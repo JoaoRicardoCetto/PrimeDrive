@@ -4,7 +4,6 @@
  */
 package controller;
 
-import domain.Veiculo;
 import viewer.DlgCadastroCliente;
 import viewer.DlgHome;
 import viewer.DlgReservas;

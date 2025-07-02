@@ -12,6 +12,7 @@ import domain.Locadora;
 import domain.Veiculo;
 import java.awt.Color;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -76,6 +77,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         BotaoNovaReserva = new javax.swing.JButton();
         BotaoReservas = new javax.swing.JButton();
         BotaoVeiculos = new javax.swing.JButton();
+        btnRelatorioContrato = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -465,6 +467,26 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         });
         PanBarraLateral.add(BotaoVeiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 350, 80));
 
+        btnRelatorioContrato.setBackground(new java.awt.Color(70, 70, 70));
+        btnRelatorioContrato.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        btnRelatorioContrato.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorioContrato.setText("Relatório Contratos");
+        btnRelatorioContrato.setToolTipText("");
+        btnRelatorioContrato.setBorder(null);
+        btnRelatorioContrato.setFocusPainted(false);
+        btnRelatorioContrato.setHideActionText(true);
+        btnRelatorioContrato.setIconTextGap(20);
+        btnRelatorioContrato.setMaximumSize(new java.awt.Dimension(163, 32));
+        btnRelatorioContrato.setMinimumSize(new java.awt.Dimension(163, 32));
+        btnRelatorioContrato.setPreferredSize(new java.awt.Dimension(163, 32));
+        btnRelatorioContrato.setVerifyInputWhenFocusTarget(false);
+        btnRelatorioContrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelatorioContratoActionPerformed(evt);
+            }
+        });
+        PanBarraLateral.add(btnRelatorioContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 350, 80));
+
         PanBackground.add(PanBarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -579,6 +601,11 @@ public class DlgNovaReserva extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbLocadoraComponentShown
 
+    private void btnRelatorioContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioContratoActionPerformed
+        List<Contrato> lista = gerIG.getGerDominio().listar(Contrato.class);
+        gerIG.getGerRel().relComLista(lista, "relContratos.jasper");
+    }//GEN-LAST:event_btnRelatorioContratoActionPerformed
+
     private boolean validarCampos() {
         StringBuilder msgErro = new StringBuilder();
 
@@ -691,6 +718,7 @@ public class DlgNovaReserva extends javax.swing.JDialog {
     private javax.swing.JPanel PanBarraLateral;
     private javax.swing.JPanel PanCarros;
     private javax.swing.JPanel PanTitleBarraLateral;
+    private javax.swing.JButton btnRelatorioContrato;
     private javax.swing.JComboBox<String> cmbFormPagamento;
     private javax.swing.JComboBox<String> cmbLocadora;
     private javax.swing.JComboBox<String> cmbVeiculos;

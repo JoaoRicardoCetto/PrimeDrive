@@ -6,7 +6,9 @@ package viewer;
 
 import controller.GerInterGraf;
 import controller.TableModelVeiculo;
+import domain.Contrato;
 import domain.Veiculo;
+import java.util.List;
 
 /**
  *
@@ -55,6 +57,7 @@ public class DlgVeiculos extends javax.swing.JDialog {
         BotaoNovaReserva = new javax.swing.JButton();
         BotaoReservas = new javax.swing.JButton();
         BotaoVeiculos = new javax.swing.JButton();
+        btnRelatorioContrato = new javax.swing.JButton();
         PanTabela = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabVeiculos = new javax.swing.JTable();
@@ -219,6 +222,26 @@ public class DlgVeiculos extends javax.swing.JDialog {
         BotaoVeiculos.setVerifyInputWhenFocusTarget(false);
         PanBarraLateral.add(BotaoVeiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 350, 80));
 
+        btnRelatorioContrato.setBackground(new java.awt.Color(70, 70, 70));
+        btnRelatorioContrato.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        btnRelatorioContrato.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorioContrato.setText("Relatório Contratos");
+        btnRelatorioContrato.setToolTipText("");
+        btnRelatorioContrato.setBorder(null);
+        btnRelatorioContrato.setFocusPainted(false);
+        btnRelatorioContrato.setHideActionText(true);
+        btnRelatorioContrato.setIconTextGap(20);
+        btnRelatorioContrato.setMaximumSize(new java.awt.Dimension(163, 32));
+        btnRelatorioContrato.setMinimumSize(new java.awt.Dimension(163, 32));
+        btnRelatorioContrato.setPreferredSize(new java.awt.Dimension(163, 32));
+        btnRelatorioContrato.setVerifyInputWhenFocusTarget(false);
+        btnRelatorioContrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelatorioContratoActionPerformed(evt);
+            }
+        });
+        PanBarraLateral.add(btnRelatorioContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 350, 80));
+
         PanBackground.add(PanBarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, -1));
 
         TabVeiculos.setModel(tableModelVeiculo);
@@ -303,6 +326,11 @@ public class DlgVeiculos extends javax.swing.JDialog {
         tableModelVeiculo.setLista(gerIG.getGerDominio().listar(Veiculo.class));
     }//GEN-LAST:event_btnTodosActionPerformed
 
+    private void btnRelatorioContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioContratoActionPerformed
+        List<Contrato> lista = gerIG.getGerDominio().listar(Contrato.class);
+        gerIG.getGerRel().relComLista(lista, "relContratos.jasper");
+    }//GEN-LAST:event_btnRelatorioContratoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -323,6 +351,7 @@ public class DlgVeiculos extends javax.swing.JDialog {
     private javax.swing.JPanel PanTitleBarraLateral;
     private javax.swing.JTable TabVeiculos;
     private javax.swing.JButton btnDisponivel;
+    private javax.swing.JButton btnRelatorioContrato;
     private javax.swing.JButton btnTodos;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

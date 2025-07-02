@@ -2,7 +2,8 @@ package viewer;
 
 import controller.GerInterGraf;
 import controller.TableModelContrato;
-
+import domain.Contrato;
+import java.util.List;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
@@ -54,6 +55,7 @@ public class DlgReservas extends javax.swing.JDialog {
         BotaoNovaReserva = new javax.swing.JButton();
         BotaoReservas = new javax.swing.JButton();
         BotaoVeiculos = new javax.swing.JButton();
+        btnRelatorioContrato = new javax.swing.JButton();
         PanTabela = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TabReservas = new javax.swing.JTable(tableModelContrato);
@@ -223,6 +225,26 @@ public class DlgReservas extends javax.swing.JDialog {
         });
         PanBarraLateral.add(BotaoVeiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 350, 80));
 
+        btnRelatorioContrato.setBackground(new java.awt.Color(70, 70, 70));
+        btnRelatorioContrato.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
+        btnRelatorioContrato.setForeground(new java.awt.Color(255, 255, 255));
+        btnRelatorioContrato.setText("Relatório Contratos");
+        btnRelatorioContrato.setToolTipText("");
+        btnRelatorioContrato.setBorder(null);
+        btnRelatorioContrato.setFocusPainted(false);
+        btnRelatorioContrato.setHideActionText(true);
+        btnRelatorioContrato.setIconTextGap(20);
+        btnRelatorioContrato.setMaximumSize(new java.awt.Dimension(163, 32));
+        btnRelatorioContrato.setMinimumSize(new java.awt.Dimension(163, 32));
+        btnRelatorioContrato.setPreferredSize(new java.awt.Dimension(163, 32));
+        btnRelatorioContrato.setVerifyInputWhenFocusTarget(false);
+        btnRelatorioContrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelatorioContratoActionPerformed(evt);
+            }
+        });
+        PanBarraLateral.add(btnRelatorioContrato, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 350, 80));
+
         PanBackground.add(PanBarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, -1));
 
         TabReservas.setModel(tableModelContrato);
@@ -277,6 +299,11 @@ public class DlgReservas extends javax.swing.JDialog {
         tableModelContrato.setLista(gerIG.getGerDominio().listarContratosUsuario());
     }//GEN-LAST:event_formComponentShown
 
+    private void btnRelatorioContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioContratoActionPerformed
+        List<Contrato> lista = gerIG.getGerDominio().listar(Contrato.class);
+        gerIG.getGerRel().relComLista(lista, "relContratos.jasper");
+    }//GEN-LAST:event_btnRelatorioContratoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoNovaReserva;
@@ -293,6 +320,7 @@ public class DlgReservas extends javax.swing.JDialog {
     private javax.swing.JPanel PanTabela;
     private javax.swing.JPanel PanTitleBarraLateral;
     private javax.swing.JTable TabReservas;
+    private javax.swing.JButton btnRelatorioContrato;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
