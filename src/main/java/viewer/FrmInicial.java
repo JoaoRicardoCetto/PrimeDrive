@@ -101,7 +101,7 @@ public class FrmInicial extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        PainelDados.add(tfCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 79, 36));
+        PainelDados.add(tfCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 100, 36));
 
         TituloCad.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 18)); // NOI18N
         PainelDados.add(TituloCad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
