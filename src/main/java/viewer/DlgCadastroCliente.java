@@ -68,14 +68,14 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
         labTelefone = new javax.swing.JLabel();
         pfSenha = new javax.swing.JPasswordField();
         ftTelefone = new javax.swing.JFormattedTextField();
+        BotaoCadastrar = new javax.swing.JButton();
+        BotaoCancelar = new javax.swing.JButton();
         PanBarraLateral = new javax.swing.JPanel();
         PanTitleBarraLateral = new javax.swing.JPanel();
         LabPrimeDrive = new javax.swing.JLabel();
         LabAluguelDeCarros = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         LabIMGCarro = new javax.swing.JLabel();
-        BotaoCadastrar = new javax.swing.JButton();
-        BotaoCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -241,6 +241,24 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
         }
         PainelDados.add(ftTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 110, 36));
 
+        BotaoCadastrar.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
+        BotaoCadastrar.setText("Cadastrar");
+        BotaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoCadastrarActionPerformed(evt);
+            }
+        });
+        PainelDados.add(BotaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 110, 30));
+
+        BotaoCancelar.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
+        BotaoCancelar.setText("Cancelar");
+        BotaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoCancelarActionPerformed(evt);
+            }
+        });
+        PainelDados.add(BotaoCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 110, 30));
+
         PanBackground.add(PainelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 770, 430));
 
         PanBarraLateral.setBackground(new java.awt.Color(51, 51, 51));
@@ -294,24 +312,6 @@ public class DlgCadastroCliente extends javax.swing.JDialog {
         PanBarraLateral.add(LabIMGCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 610, 400));
 
         PanBackground.add(PanBarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 0, 560, -1));
-
-        BotaoCadastrar.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
-        BotaoCadastrar.setText("Cadastrar");
-        BotaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoCadastrarActionPerformed(evt);
-            }
-        });
-        PanBackground.add(BotaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 670, 110, 30));
-
-        BotaoCancelar.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
-        BotaoCancelar.setText("Cancelar");
-        BotaoCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotaoCancelarActionPerformed(evt);
-            }
-        });
-        PanBackground.add(BotaoCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 670, 110, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12974df2-cadd-4cdf-ad4c-0794f9da6344">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12974df2-cadd-4cdf-ad4c-0794f9da6344">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -21,93 +24,163 @@
 		</box>
 	</style>
 	<subDataset name="Table Dataset 1" uuid="3c8f670b-2845-4fc9-bfc3-cdcf2f3531a6"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cliente" class="domain.Cliente">
+		<fieldDescription><![CDATA[cliente]]></fieldDescription>
+	</field>
+	<field name="dat_fim" class="java.util.Date">
+		<fieldDescription><![CDATA[dat_fim]]></fieldDescription>
+	</field>
+	<field name="dat_inicio" class="java.util.Date">
+		<fieldDescription><![CDATA[dat_inicio]]></fieldDescription>
+	</field>
+	<field name="dat_pagamento" class="java.util.Date">
+		<fieldDescription><![CDATA[dat_pagamento]]></fieldDescription>
+	</field>
+	<field name="forma_pagamento" class="java.lang.String">
+		<fieldDescription><![CDATA[forma_pagamento]]></fieldDescription>
+	</field>
+	<field name="idContrato" class="java.lang.Integer">
+		<fieldDescription><![CDATA[idContrato]]></fieldDescription>
+	</field>
+	<field name="locadora" class="domain.Locadora">
+		<fieldDescription><![CDATA[locadora]]></fieldDescription>
+	</field>
+	<field name="qtd_parcelas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[qtd_parcelas]]></fieldDescription>
+	</field>
+	<field name="val_parcela" class="java.lang.Double">
+		<fieldDescription><![CDATA[val_parcela]]></fieldDescription>
+	</field>
+	<field name="val_total" class="java.lang.Double">
+		<fieldDescription><![CDATA[val_total]]></fieldDescription>
+	</field>
+	<field name="veiculo" class="domain.Veiculo">
+		<fieldDescription><![CDATA[veiculo]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="107" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-24" y="0" width="601" height="107" backcolor="#000000" uuid="950e16e9-2001-4de3-a682-09504bb3ea93"/>
+			</rectangle>
 			<staticText>
-				<reportElement x="156" y="11" width="245" height="57" uuid="c9fce55c-9fe3-45a5-a16e-a21deb105916"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="212" y="64" width="100" height="20" forecolor="#FFFFFF" uuid="69f3f51e-3408-4583-871b-49ec47977d9c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Yu Gothic UI Light" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aluguel de carros]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="27" width="196" height="57" forecolor="#FFFFFF" backcolor="#000000" uuid="c9fce55c-9fe3-45a5-a16e-a21deb105916"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="Yu Gothic UI Semibold" size="36" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Prime Drive]]></text>
 			</staticText>
+			<image>
+				<reportElement x="451" y="0" width="121" height="107" uuid="b305fc36-97fd-4160-94f5-d1ffc43bb5d3"/>
+				<imageExpression><![CDATA["C:\\Users\\LEDS\\Documents\\NetBeansProjects\\PrimeDrive\\src\\main\\resources\\imagens\\CarroCadastro2_red.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch">
 			<staticText>
-				<reportElement x="220" y="15" width="132" height="20" uuid="9d055f7f-c41d-45c9-89bc-af01507a4657"/>
-				<textElement textAlignment="Justified">
-					<font fontName="Yu Gothic UI Light" size="14"/>
+				<reportElement mode="Opaque" x="-24" y="0" width="601" height="35" forecolor="#FFFFFF" backcolor="#999999" uuid="9d055f7f-c41d-45c9-89bc-af01507a4657"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Yu Gothic UI Light" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Relatório de Contrato]]></text>
+				<text><![CDATA[Relatório de Contratos]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="41" width="16" height="20" uuid="b454a433-e687-4999-96eb-4fcdfe9d209a"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="41" width="66" height="20" uuid="7424f6e5-a380-466c-8ad9-421e1dd4081b"/>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="41" width="98" height="20" uuid="61c7db1b-8ab1-4050-8aad-424dbc357fe5"/>
+				<text><![CDATA[VEICULO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="92" y="41" width="82" height="20" uuid="afd7a7f2-44ab-4d5a-bf91-af6b2e9eb988"/>
+				<text><![CDATA[LOCADORA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="41" width="50" height="20" uuid="364d4ce5-7dc3-4dfd-97a7-a695cd2c4338"/>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="41" width="47" height="20" uuid="44c88adb-1fc8-4a54-ad1d-6734f52b0786"/>
+				<text><![CDATA[dat_inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="41" width="50" height="20" uuid="ac683358-545b-4ed1-90fd-83f195380ed9"/>
+				<text><![CDATA[dat_fim]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="462" y="41" width="93" height="20" uuid="8043a12f-eecf-4b62-8f1d-2edd87155562"/>
+				<text><![CDATA[forma_pagamento]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="0" width="0" height="0" uuid="67737a1a-23b7-43e7-8a5c-b0a6426ebafc"/>
+			</rectangle>
+			<line>
+				<reportElement x="0" y="0" width="1" height="1" forecolor="#FFFFFF" uuid="fa9da154-a1aa-433a-a0b1-f753a6354b94"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="1" forecolor="#FFFFFF" uuid="3d1897f4-9685-4c71-9927-341de1f08a53"/>
+			</line>
+		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
-			<componentElement>
-				<reportElement key="table" style="table" x="260" y="0" width="630" height="140" uuid="fc69f668-0a46-43fb-a19e-f3b26fca8160"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="Table Dataset 1" uuid="9856d05a-4f49-4041-b03e-4dd0f36e07fa">
-						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
-					</datasetRun>
-					<jr:column width="90" uuid="8d3e644f-ef53-4684-9fe3-6cb87a764754">
-						<jr:tableHeader style="table_TH" height="30"/>
-						<jr:tableFooter style="table_TH" height="30"/>
-						<jr:columnHeader style="table_CH" height="30"/>
-						<jr:columnFooter style="table_CH" height="30"/>
-						<jr:detailCell style="table_TD" height="20"/>
-					</jr:column>
-					<jr:column width="90" uuid="b0212c87-a7cb-4633-b60d-0e1f9c7bfaa6">
-						<jr:tableHeader style="table_TH" height="30"/>
-						<jr:tableFooter style="table_TH" height="30"/>
-						<jr:columnHeader style="table_CH" height="30"/>
-						<jr:columnFooter style="table_CH" height="30"/>
-						<jr:detailCell style="table_TD" height="20"/>
-					</jr:column>
-					<jr:column width="90" uuid="d7f8ec90-40af-4a4b-8466-d47439cb0c89">
-						<jr:tableHeader style="table_TH" height="30"/>
-						<jr:tableFooter style="table_TH" height="30"/>
-						<jr:columnHeader style="table_CH" height="30"/>
-						<jr:columnFooter style="table_CH" height="30"/>
-						<jr:detailCell style="table_TD" height="20"/>
-					</jr:column>
-					<jr:column width="90" uuid="68b50c81-1070-43da-af51-dfbb9579424c">
-						<jr:tableHeader style="table_TH" height="30"/>
-						<jr:tableFooter style="table_TH" height="30"/>
-						<jr:columnHeader style="table_CH" height="30"/>
-						<jr:columnFooter style="table_CH" height="30"/>
-						<jr:detailCell style="table_TD" height="20"/>
-					</jr:column>
-					<jr:column width="90" uuid="557864c1-dae2-4c3e-9635-0b196356a03e">
-						<jr:tableHeader style="table_TH" height="30"/>
-						<jr:tableFooter style="table_TH" height="30"/>
-						<jr:columnHeader style="table_CH" height="30"/>
-						<jr:columnFooter style="table_CH" height="30"/>
-						<jr:detailCell style="table_TD" height="20"/>
-					</jr:column>
-					<jr:column width="90" uuid="d304590a-2a44-4646-97f0-185f388c9100">
-						<jr:tableHeader style="table_TH" height="30"/>
-						<jr:tableFooter style="table_TH" height="30"/>
-						<jr:columnHeader style="table_CH" height="30"/>
-						<jr:columnFooter style="table_CH" height="30"/>
-						<jr:detailCell style="table_TD" height="20"/>
-					</jr:column>
-					<jr:column width="90" uuid="e701ff59-c9b3-498d-a336-21b222e0dcb1">
-						<jr:tableHeader style="table_TH" height="30"/>
-						<jr:tableFooter style="table_TH" height="30"/>
-						<jr:columnHeader style="table_CH" height="30"/>
-						<jr:columnFooter style="table_CH" height="30"/>
-						<jr:detailCell style="table_TD" height="20"/>
-					</jr:column>
-				</jr:table>
-			</componentElement>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="16" height="20" uuid="f4e0101f-aadd-4bfd-80ff-08dde61cce51"/>
+				<textFieldExpression><![CDATA[$F{idContrato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="0" width="66" height="20" uuid="775b3e3f-abf1-4005-b375-d4587ec3df4a"/>
+				<textFieldExpression><![CDATA[""+$F{cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="98" height="20" uuid="fc89e16d-45a7-415d-84fa-6d0936dd7e26"/>
+				<textFieldExpression><![CDATA[""+$F{veiculo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="0" width="82" height="20" uuid="e5cbcec4-7df8-4f9d-bf48-3fc3fbdde1e4"/>
+				<textFieldExpression><![CDATA[""+$F{locadora}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="283" y="0" width="50" height="20" uuid="cb1e9d5f-95b1-494a-b767-78aea021d1d0"/>
+				<textFieldExpression><![CDATA[$F{val_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="333" y="0" width="47" height="20" uuid="a81675dc-c4ae-44a6-8b27-50141ab1a6a5"/>
+				<textFieldExpression><![CDATA[$F{dat_inicio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="401" y="0" width="50" height="20" uuid="1074df31-6078-4749-824b-b174026fb88e"/>
+				<textFieldExpression><![CDATA[$F{dat_fim}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="462" y="0" width="93" height="20" uuid="6dd40391-a162-4c57-bcdc-9b5b13817138"/>
+				<textFieldExpression><![CDATA[$F{forma_pagamento}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="24" width="555" height="1" uuid="6a24b805-3d3d-4973-84bf-24a213a86c4c"/>
+			</line>
 		</band>
 	</detail>
 	<columnFooter>
@@ -117,6 +190,28 @@
 		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band height="42" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-24" y="-54" width="601" height="54" forecolor="#999999" backcolor="#999999" uuid="98a604d4-6ba3-4d9f-931b-c078e5171b93"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-24" y="0" width="601" height="42" forecolor="#FFFFFF" backcolor="#000000" uuid="22474c61-854a-4c37-b1b8-ed59484f22d8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="12" width="133" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="b2bbcefd-44e9-4827-8018-35d187487dd1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Informações de contato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="12" width="133" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="dd951342-47d0-485c-bfcb-a430f60dcb93"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Email: primedrive@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="12" width="133" height="20" forecolor="#FFFFFF" backcolor="#000000" uuid="94594429-a279-403c-b8ed-ae98031be2a8"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Tel: (27)998023137]]></text>
+			</staticText>
+		</band>
 	</summary>
 </jasperReport>
