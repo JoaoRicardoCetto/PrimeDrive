@@ -6,7 +6,6 @@ package dao;
 
 import domain.Veiculo;
 import domain.enums.SituacaoVeiculo;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;

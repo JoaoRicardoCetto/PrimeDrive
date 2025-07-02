@@ -34,12 +34,12 @@ public class GerInterGraf {
     private DlgVeiculos dlgVeiculos = null;
     
     private GerenciadorDominio gerDominio;
-    
+    private GerenciadorRelatorios gerRel;
     
     public GerInterGraf() {
         try {
             gerDominio = new GerenciadorDominio();
-            
+            gerRel = new GerenciadorRelatorios();
         } catch (java.lang.ExceptionInInitializerError | HibernateException ex) {
             JOptionPane.showMessageDialog(null, ex, "Erro ao inicializar.", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
@@ -94,6 +94,10 @@ public class GerInterGraf {
 
     public GerenciadorDominio getGerDominio() {
         return gerDominio;
+    }
+
+    public GerenciadorRelatorios getGerRel() {
+        return gerRel;
     }
     
     public void carregarCombo(JComboBox combo, Class classe) {
